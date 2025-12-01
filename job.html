@@ -1,65 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Job Details | Kdell Infotech</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Details</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
 
-  <header>
-    <h2>Kdell Infotech – Job Details</h2>
-  </header>
-
-  <main id="jobDetails" class="job-details-container">
-      <p>Loading job details...</p>
-  </main>
+  <h2>Job Details</h2>
+  <div id="job-details">Loading...</div>
 
   <script>
-    // Read job ID from URL
+    // Get job ID from URL
     const urlParams = new URLSearchParams(window.location.search);
     const jobId = urlParams.get("id");
 
-    async function loadJob() {
-      try {
-        const response = await fetch("jobs.json");
-        const jobs = await response.json();
-
+    // Load job details
+    fetch("/jobs.json")
+      .then(res => res.json())
+      .then(jobs => {
         const job = jobs.find(j => j.id == jobId);
 
         if (!job) {
-          document.getElementById("jobDetails").innerHTML = "<h3>Job not found.</h3>";
+          document.getElementById("job-details").innerHTML = "<p>Job not found.</p>";
           return;
         }
 
-        document.getElementById("jobDetails").innerHTML = `
-          <h2>${job.title}</h2>
+        document.getElementById("job-details").innerHTML = `
+          <h3>${job.title}</h3>
           <p><strong>Location:</strong> ${job.location}</p>
           <p><strong>Type:</strong> ${job.type}</p>
+          <p><strong>Pay:</strong> ${job.pay}</p>
           <p><strong>Status:</strong> ${job.status}</p>
-          <p><strong>Pay Range:</strong> ${job.pay}</p>
+          <p><strong>Description:</strong> ${job.description}</p>
 
-          <h3>Description:</h3>
-          <p>${job.description}</p>
-
-          <h3>Skills Required:</h3>
-          <ul>${job.skills.map(skill => `<li>${skill}</li>`).join("")}</ul>
-
-          <h3>Requirements:</h3>
-          <ul>${job.requirements?.map(req => `<li>${req}</li>`).join("") || "None listed"}</ul>
+          <h4>Skills:</h4>
+          <ul>${job.skills.map(s => `<li>${s}</li>`).join("")}</ul>
 
           <br>
-          <a class="apply-button" href="mailto:Kdellinfotech@gmail.com?subject=Applying for ${job.title}">
-            Apply Now
-          </a>
+          <a href="index.html">← Back to all jobs</a>
         `;
-      } catch (error) {
-        document.getElementById("jobDetails").innerHTML = "<p>Error loading job details.</p>";
-      }
-    }
-
-    loadJob();
+      })
+      .catch(err => console.error("Error:", err));
   </script>
 
 </body>
