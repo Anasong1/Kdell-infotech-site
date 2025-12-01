@@ -1,49 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Job Details</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-</head>
-<body>
+<body class="job-detail-page">
+  <main class="job-detail">
+    <a href="index.html#open-roles" class="back-link">
+      ← Back to all roles
+    </a>
 
-  <h2>Job Details</h2>
-  <div id="job-details">Loading...</div>
+    <div id="job-details">Loading...</div>
+  </main>
 
   <script>
     // Get job ID from URL
     const urlParams = new URLSearchParams(window.location.search);
-    const jobId = urlParams.get("id");
+    const jobId = urlParams.get('id');
 
     // Load job details
-    fetch("/jobs.json")
-      .then(res => res.json())
-      .then(jobs => {
-        const job = jobs.find(j => j.id == jobId);
+    fetch('/jobs.json')
+      .then((res) => res.json())
+      .then((jobs) => {
+        const job = jobs.find((j) => String(j.id) === String(jobId));
 
         if (!job) {
-          document.getElementById("job-details").innerHTML = "<p>Job not found.</p>";
+          document.getElementById('job-details').innerHTML =
+            '<p>Job not found.</p>';
           return;
         }
 
-        document.getElementById("job-details").innerHTML = `
-          <h3>${job.title}</h3>
-          <p><strong>Location:</strong> ${job.location}</p>
-          <p><strong>Type:</strong> ${job.type}</p>
-          <p><strong>Pay:</strong> ${job.pay}</p>
-          <p><strong>Status:</strong> ${job.status}</p>
-          <p><strong>Description:</strong> ${job.description}</p>
+        document.getElementById('job-details').innerHTML = `
+          <h1>${job.title}</h1>
+          <p><strong>Location:</strong> ${job.location || ''}</p>
+          <p><strong>Type:</strong> ${job.type || ''}</p>
+          <p><strong>Pay:</strong> ${job.pay || ''}</p>
+          <p><strong>Status:</strong> ${job.status || ''}</p>
 
-          <h4>Skills:</h4>
-          <ul>${job.skills.map(s => `<li>${s}</li>`).join("")}</ul>
+          ${
+            job.description
+              ? `<h3>Description</h3><p>${job.description}</p>`
+              : ''
+          }
+
+          ${
+            Array.isArray(job.skills) && job.skills.length
+              ? `
+            <h3>Skills</h3>
+            <ul>
+              ${job.skills.map((s) => `<li>${s}</li>`).join('')}
+            </ul>
+          `
+              : ''
+          }
 
           <br>
-          <a href="index.html">← Back to all jobs</a>
+          <a
+            class="btn btn-primary"
+            href="mailto:kdellinfotech@gmail.com?subject=${encodeURIComponent(
+              'Application - ' + job.title
+            )}"
+          >
+            Apply now
+          </a>
         `;
       })
-      .catch(err => console.error("Error:", err));
+      .catch((err) => {
+        console.error('Error:', err);
+        document.getElementById('job-details').innerHTML =
+          '<p>There was a problem loading this job. Please try again later.</p>';
+      });
   </script>
-
 </body>
-</html>
+
