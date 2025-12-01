@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "title": "Senior Data Engineer (Azure / Databricks)",
+    "location": "Remote - USA",
+    "type": "Contract-to-Hire",
+    "skills": ["Azure", "Databricks", "PySpark", "SQL"],
+    "description": "Responsible for designing scalable data pipelines...",
+    "pay": "$75–$95/hr",
+    "status": "Open"
+  }
+]
