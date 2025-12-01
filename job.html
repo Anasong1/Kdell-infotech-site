@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Details | Kdell Infotech</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <header>
+    <h2>Kdell Infotech – Job Details</h2>
+  </header>
+
+  <main id="jobDetails" class="job-details-container">
+      <p>Loading job details...</p>
+  </main>
+
+  <script>
+    // Read job ID from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const jobId = urlParams.get("id");
+
+    async function loadJob() {
+      try {
+        const response = await fetch("jobs.json");
+        const jobs = await response.json();
+
+        const job = jobs.find(j => j.id == jobId);
+
+        if (!job) {
+          document.getElementById("jobDetails").innerHTML = "<h3>Job not found.</h3>";
+          return;
+        }
+
+        document.getElementById("jobDetails").innerHTML = `
+          <h2>${job.title}</h2>
+          <p><strong>Location:</strong> ${job.location}</p>
+          <p><strong>Type:</strong> ${job.type}</p>
+          <p><strong>Status:</strong> ${job.status}</p>
+          <p><strong>Pay Range:</strong> ${job.pay}</p>
+
+          <h3>Description:</h3>
+          <p>${job.description}</p>
+
+          <h3>Skills Required:</h3>
+          <ul>${job.skills.map(skill => `<li>${skill}</li>`).join("")}</ul>
+
+          <h3>Requirements:</h3>
+          <ul>${job.requirements?.map(req => `<li>${req}</li>`).join("") || "None listed"}</ul>
+
+          <br>
+          <a class="apply-button" href="mailto:Kdellinfotech@gmail.com?subject=Applying for ${job.title}">
+            Apply Now
+          </a>
+        `;
+      } catch (error) {
+        document.getElementById("jobDetails").innerHTML = "<p>Error loading job details.</p>";
+      }
+    }
+
+    loadJob();
+  </script>
+
+</body>
+</html>
