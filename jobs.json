@@ -8,20 +8,17 @@
     "description": "Responsible for designing scalable data pipelines...",
     "pay": "$75–$95/hr",
     "status": "Open"
+  },
+  {
+    "id": 2,
+    "title": "Data Analyst",
+    "location": "Remote - USA",
+    "type": "Direct Hire",
+    "skills": ["SQL", "Tableau", "Databricks"],
+    "pay": "65/hr",
+    "status": "Open",
+    "imageUrl": "",
+    "description": "Need to hire",
+    "requirements": ["5-year experience"]
   }
-],{
-  "id": 2,
-  "title": "Data Analyst",
-  "location": "Remote-USA",
-  "type": "Direct Hire",
-  "skills": [
-    "SQI. Tableau. Databricks"
-  ],
-  "pay": "65hr",
-  "status": "Open",
-  "imageUrl": "",
-  "description": "need to hire",
-  "requirements": [
-    "5-year experience"
-  ]
-}
+]
