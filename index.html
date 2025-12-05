@@ -2,449 +2,272 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Kdell Infotech | Advanced IT Talent & Technology Staffing</title>
+  <title>Kdell Infotech | IT Talent & Tech Solutions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Kdell Infotech connects top-tier IT talent with innovative companies across all IT roles: cloud, data, cybersecurity, DevOps, QA, software engineering, support, project management and more." />
   <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <!-- Header / Nav -->
+  <!-- Top government-style slim bar -->
+  <div class="gov-topbar">
+    <div class="container gov-topbar-inner">
+      <span class="gov-flag">Official site of Kdell Infotech</span>
+      <span class="gov-help">Need help? <a href="#contact">Contact us</a></span>
+    </div>
+  </div>
+
+  <!-- Main header -->
   <header class="site-header">
     <div class="container header-inner">
-      <div class="logo">
-        <span class="logo-mark">KI</span>
-        <span class="logo-text">
-          <span class="logo-title">Kdell Infotech</span>
-          <span class="logo-subtitle">IT Talent & Tech Solutions</span>
+      <a href="#top" class="brand">
+        <span class="brand-mark">KI</span>
+        <span class="brand-text">
+          <span class="brand-name">Kdell Infotech</span>
+          <span class="brand-subtitle">IT Talent & Tech Solutions</span>
         </span>
-      </div>
-      <nav class="nav">
-        <a href="#about">About</a>
+      </a>
+
+      <nav class="main-nav">
         <a href="#services">Services</a>
-        <a href="#specialties">Tech Domains</a>
-        <a href="#jobs">Open Roles</a>
+        <a href="#open-roles">Open Roles</a>
         <a href="#clients">For Clients</a>
-        <a href="#talent">For Talent</a>
-        <a href="#contact" class="btn btn-sm btn-outline">Contact</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
       </nav>
-      <button class="nav-toggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
+
+      <a href="#open-roles" class="btn btn-outline small">Find a role</a>
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero search like a gov jobs portal -->
   <section class="hero" id="top">
     <div class="container hero-inner">
       <div class="hero-copy">
-        <span class="badge">IT Recruiting • Technology Staffing • Consulting</span>
+        <p class="eyebrow">Public Sector · Commercial · Remote USA</p>
         <h1>Advanced IT talent for mission-critical projects.</h1>
-        <p>
-          Kdell Infotech connects exceptional engineers, analysts, and technology leaders
-          with organizations that need to move fast — from startups to Fortune 500 and public sector.
+        <p class="hero-subtitle">
+          We connect exceptional engineers, analysts, and technology leaders with teams that
+          support public sector and enterprise programs across the U.S.
         </p>
-        <div class="hero-actions">
-          <a href="#clients" class="btn">I'm hiring</a>
-          <a href="#talent" class="btn btn-outline">I'm looking for a role</a>
-        </div>
-        <div class="hero-metas">
-          <div>
-            <strong>48 hrs</strong>
-            <span>Average short-list time</span>
+
+        <!-- Search form – your JS can hook into this if you want later -->
+        <form class="job-search-form" onsubmit="return false;">
+          <div class="job-search-fields">
+            <div class="field">
+              <label for="jobsearchinput">Keyword</label>
+              <!-- IMPORTANT: keep this ID for your JS search logic -->
+              <input
+                type="text"
+                id="jobsearchinput"
+                placeholder="Search by title, skill, or keyword (e.g. Azure, Data Engineer)"
+              />
+            </div>
+            <div class="field">
+              <label for="location">Location</label>
+              <input
+                type="text"
+                id="location"
+                placeholder="Remote · USA · City / State"
+              />
+            </div>
           </div>
-          <div>
-            <strong>95%</strong>
-            <span>Client repeat engagement</span>
+          <button class="btn btn-primary">Search jobs</button>
+        </form>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">48 hrs</span>
+            <span class="stat-label">Average short-list time</span>
           </div>
-          <div>
-            <strong>US & Remote</strong>
-            <span>Nationwide coverage</span>
+          <div class="stat">
+            <span class="stat-number">95%</span>
+            <span class="stat-label">Client repeat engagement</span>
           </div>
-        </div>
-      </div>
-      <div class="hero-panel">
-        <div class="panel-header">
-          <span class="dot dot-red"></span>
-          <span class="dot dot-yellow"></span>
-          <span class="dot dot-green"></span>
-          <span class="panel-title">Live Talent Snapshot</span>
-        </div>
-        <div class="panel-body">
-          <ul class="talent-list">
-            <li>
-              <div class="talent-role">Senior Data Engineer</div>
-              <div class="talent-meta">
-                <span>Azure · Databricks · PySpark</span>
-                <span class="tag tag-available">Available in 2 weeks</span>
-              </div>
-            </li>
-            <li>
-              <div class="talent-role">Sr. QA / SDET</div>
-              <div class="talent-meta">
-                <span>API · Selenium · Performance</span>
-                <span class="tag tag-hot">Actively interviewing</span>
-              </div>
-            </li>
-            <li>
-              <div class="talent-role">Cloud Security Engineer</div>
-              <div class="talent-meta">
-                <span>AWS · Security+ · SIEM</span>
-                <span class="tag">Remote</span>
-              </div>
-            </li>
-          </ul>
-          <div class="panel-footer">
-            <p>Need a short-list for a role?</p>
-            <a href="#contact" class="btn btn-sm btn-full">Request talent</a>
+          <div class="stat">
+            <span class="stat-number">US &amp; Remote</span>
+            <span class="stat-label">Nationwide coverage</span>
           </div>
         </div>
       </div>
+
+      <aside class="hero-panel">
+        <h2>I'm hiring · I'm looking</h2>
+        <p class="hero-panel-text">
+          Whether you’re scaling a mission-critical project or searching for your next
+          cleared or commercial role, Kdell Infotech can help.
+        </p>
+        <div class="hero-panel-actions">
+          <a href="#clients" class="btn btn-secondary block">Request talent</a>
+          <a href="#open-roles" class="btn btn-ghost block">Browse open roles</a>
+        </div>
+        <ul class="hero-bullets">
+          <li>Contract, contract-to-hire, and direct hire</li>
+          <li>DoD, DHS, public health &amp; commercial programs</li>
+          <li>Cloud, data, cyber, QA, and support roles</li>
+        </ul>
+      </aside>
     </div>
   </section>
 
-  <!-- About -->
-  <section id="about" class="section section-muted">
-    <div class="container grid grid-2 align-center">
-      <div>
-        <header class="section-header left">
-          <h2>About Kdell Infotech.</h2>
-          <p>IT recruiting with a practitioner's eye — rooted in hands-on data, cloud, and enterprise experience.</p>
-        </header>
-        <p style="font-size:0.9rem;color:#e5e7eb;margin-bottom:0.75rem;">
-          Kdell Infotech is a Georgia-based IT staffing and consulting partner focused on connecting high-performing
-          technology professionals with organizations that need to deliver reliable, secure, and scalable solutions.
-        </p>
-        <p style="font-size:0.85rem;color:#9ca3af;margin-bottom:0.75rem;">
-          From data and analytics to cloud, cybersecurity, QA, and help desk support, we understand the tools and
-          environments our clients use every day. That means we ask better questions, present tighter short-lists,
-          and create smoother experiences for both hiring managers and candidates.
-        </p>
-        <p style="font-size:0.85rem;color:#9ca3af;">
-          Based in Austell, GA and serving clients nationwide, we work with startups, mid-sized companies, and public
-          sector teams that value clear communication, transparency, and long-term partnerships.
-        </p>
-      </div>
-      <div class="stats-card">
-        <h3>Why teams choose Kdell Infotech</h3>
-        <div class="stats-grid">
-          <div>
-            <span class="stat-number">IT-first</span>
-            <span class="stat-label">Deep focus on technology roles only</span>
-          </div>
-          <div>
-            <span class="stat-number">Hands-on</span>
-            <span class="stat-label">Built by practitioners who know the work</span>
-          </div>
-          <div>
-            <span class="stat-number">Flexible</span>
-            <span class="stat-label">Contract, C2H, and direct hire</span>
-          </div>
-          <div>
-            <span class="stat-note">Ready to build your next high-performing IT team or find your next role.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section id="services" class="section">
-    <div class="container">
-      <header class="section-header">
-        <h2>Staffing solutions built for modern IT teams.</h2>
-        <p>Flexible engagement models for every stage — from project surge support to executive leadership hires.</p>
-      </header>
-      <div class="grid grid-3">
-        <article class="card">
-          <h3>Contract & Project-based</h3>
-          <p>Rapid access to specialized IT contractors to support migrations, new implementations, and time-bound initiatives.</p>
-          <ul class="list">
-            <li>Cloud & data modernization projects</li>
-            <li>Application rollouts & upgrades</li>
-            <li>Performance tuning & remediation</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Contract-to-Hire</h3>
-          <p>Evaluate talent in real environments before you hire full-time — while we handle onboarding and compliance.</p>
-          <ul class="list">
-            <li>Risk-reduced scaling</li>
-            <li>Full HR & payroll support</li>
-            <li>Conversion terms that make sense</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Direct Hire & Executive Search</h3>
-          <p>Strategic recruitment for key full-time hires across engineering, data, security, architecture, and leadership.</p>
-          <ul class="list">
-            <li>Senior and niche roles</li>
-            <li>Targeted sourcing & outreach</li>
-            <li>Passive candidate networks</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Tech Specialties -->
-  <section id="specialties" class="section section-muted">
-    <div class="container">
-      <header class="section-header">
-        <h2>Deep coverage across critical technology domains.</h2>
-        <p>We focus on the skills and platforms that power modern digital organizations.</p>
-      </header>
-      <div class="grid grid-4 specialties-grid">
-        <div class="pill-card">
-          <h3>Cloud & DevOps</h3>
-          <p>AWS · Azure · GCP · Kubernetes · Terraform · CI/CD · Observability</p>
-        </div>
-        <div class="pill-card">
-          <h3>Data & Analytics</h3>
-          <p>Data Engineers · BI · Analytics · ML · Databricks · Snowflake · SQL</p>
-        </div>
-        <div class="pill-card">
-          <h3>Cybersecurity</h3>
-          <p>Governance · Cloud Security · SOC · SIEM · IAM · Compliance</p>
-        </div>
-        <div class="pill-card">
-          <h3>Applications & QA</h3>
-          <p>.NET · Java · Frontend · SDET · Performance Testing · Automation</p>
-        </div>
-        <div class="pill-card">
-          <h3>Enterprise & ERP</h3>
-          <p>SAP · Oracle · Workday · Salesforce · Integration Specialists</p>
-        </div>
-        <div class="pill-card">
-          <h3>Infrastructure</h3>
-          <p>Network · Systems · Virtualization · End-User Computing · Helpdesk</p>
-        </div>
-        <div class="pill-card">
-          <h3>Project & Delivery</h3>
-          <p>Scrum Masters · PMs · BAs · Product Owners · Release Managers</p>
-        </div>
-        <div class="pill-card">
-          <h3>Public Sector & Cleared</h3>
-          <p>DoD · DHS · Public Health · Clearance-eligible & cleared talent</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Open Roles: categories + job list -->
-  <section id="jobs" class="section">
+  <!-- Job families section -->
+  <section class="section" id="services">
     <div class="container">
       <header class="section-header">
         <h2>We recruit across all IT job families.</h2>
-        <p>From entry-level support to senior leadership, Kdell Infotech covers the full IT career spectrum.</p>
+        <p>From entry-level analysts to senior leadership and cleared engineers.</p>
       </header>
 
-      <!-- Category overview -->
-      <div class="grid grid-3" style="margin-bottom:1.7rem;">
-        <article class="card">
-          <h3>Engineering & Cloud</h3>
-          <ul class="list">
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Engineering &amp; Cloud</h3>
+          <ul class="bullet-list">
             <li>Software Engineers (.NET, Java, Python, JS)</li>
-            <li>Cloud Engineers & Architects (AWS, Azure, GCP)</li>
-            <li>DevOps, SRE & Platform Engineering</li>
+            <li>Cloud Engineers &amp; Architects (AWS, Azure, GCP)</li>
+            <li>DevOps, SRE &amp; Platform Engineering</li>
           </ul>
-        </article>
-        <article class="card">
-          <h3>Data, Cyber & QA</h3>
-          <ul class="list">
-            <li>Data Engineers, Analysts, BI Developers</li>
-            <li>Cybersecurity Analysts & Engineers</li>
-            <li>QA, SDET & Performance Testing</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Infra, Support & Delivery</h3>
-          <ul class="list">
-            <li>System & Network Administrators</li>
-            <li>Help Desk & Desktop Support</li>
-            <li>IT PMs, Scrum Masters & BAs</li>
-          </ul>
-        </article>
-      </div>
-
-      <header class="section-header section-header-row" style="margin-bottom:1.2rem;">
-        <div>
-          <h3>Sample active & recurring IT roles.</h3>
-          <p style="font-size:0.85rem;">These examples show the types of positions we regularly hire for.</p>
         </div>
-        <form class="job-search" onsubmit="return false;">
-          <input type="text" id="jobSearchInput" placeholder="Search IT roles (cloud, data, security, devops, qa, pm...)" />
-        </form>
+
+        <div class="card">
+          <h3>Data, Cyber &amp; QA</h3>
+          <ul class="bullet-list">
+            <li>Data Engineers, Analysts &amp; BI Developers</li>
+            <li>Cybersecurity Analysts &amp; Engineers</li>
+            <li>QA, SDET &amp; Performance Testing</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Infra, Support &amp; Delivery</h3>
+          <ul class="bullet-list">
+            <li>System &amp; Network Administrators</li>
+            <li>Help Desk &amp; Desktop Support</li>
+            <li>IT PMs, Scrum Masters &amp; BAs</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Public sector / cleared callout -->
+  <section class="section section-accent">
+    <div class="container split">
+      <div>
+        <h2>Public Sector &amp; Cleared Talent</h2>
+        <p>
+          DoD · DHS · Public Health · Federal &amp; State agencies · Clearance-eligible &amp;
+          cleared professionals.
+        </p>
+      </div>
+      <div>
+        <ul class="taglist">
+          <li>Secret</li>
+          <li>Top Secret / SCI</li>
+          <li>Public Trust</li>
+          <li>Remote &amp; On-site</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open roles / job list (driven by your JS) -->
+  <section class="section" id="open-roles">
+    <div class="container">
+      <header class="section-header">
+        <h2>Sample active &amp; recurring IT roles.</h2>
+        <p>
+          These examples show the types of positions we regularly hire for. Use the search
+          box above to filter by skill or title.
+        </p>
       </header>
 
-     <div class="job-list" id="job-list">
-
-        <!-- Jobs rendered by JS -->
+      <!-- Your JS will render job cards INTO this div -->
+      <div id="job-list" class="job-list">
+        <!-- Populated by main.js -->
       </div>
 
       <div class="jobs-footer">
-        <p>Don't see your exact title? We still want to hear from you.</p>
-        <a href="mailto:Kdellinfotech@gmail.com?subject=Resume%20-%20Any%20IT%20Job%20Opportunity" class="btn btn-outline">Submit your resume for any IT role</a>
+        <p>Don’t see your exact title? We still want to hear from you.</p>
+        <a
+          href="mailto:kdellinfotech@gmail.com?subject=Resume%20-%20New%20IT%20Opportunity"
+          class="btn btn-outline"
+        >
+          Email your resume
+        </a>
       </div>
     </div>
   </section>
 
   <!-- For Clients -->
-  <section id="clients" class="section section-muted">
-    <div class="container grid grid-2 align-center">
-      <div>
-        <header class="section-header left">
-          <h2>For hiring managers & technology leaders.</h2>
-          <p>We act as an extension of your team — translating complex requirements into precise candidate profiles.</p>
-        </header>
-        <ul class="icon-list">
-          <li>
-            <span class="icon-badge">01</span>
-            <div>
-              <strong>Discovery & role design</strong>
-              <p>We refine the role profile, must-haves vs nice-to-haves, interview plan, and timeline.</p>
-            </div>
-          </li>
-          <li>
-            <span class="icon-badge">02</span>
-            <div>
-              <strong>Sourced, screened, and validated</strong>
-              <p>Every candidate is vetted for technical depth, communication, and culture fit before you meet them.</p>
-            </div>
-          </li>
-          <li>
-            <span class="icon-badge">03</span>
-            <div>
-              <strong>Offer, onboarding & retention</strong>
-              <p>We support negotiations, start-dates, and follow-up to ensure long-term success.</p>
-            </div>
-          </li>
-        </ul>
-        <a href="#contact" class="btn">Request a hiring consultation</a>
-      </div>
-      <div class="stats-card">
-        <h3>What clients experience with Kdell Infotech</h3>
-        <div class="stats-grid">
-          <div>
-            <span class="stat-number">3–5</span>
-            <span class="stat-label">Curated candidates per role</span>
-          </div>
-          <div>
-            <span class="stat-number">7–14</span>
-            <span class="stat-label">Days to fill core roles*</span>
-          </div>
-          <div>
-            <span class="stat-number">90%</span>
-            <span class="stat-label">Offer acceptance rate</span>
-          </div>
-          <div>
-            <span class="stat-note">*Timelines vary by seniority, clearance, and market conditions.</span>
-          </div>
+  <section class="section" id="clients">
+    <div class="container">
+      <header class="section-header">
+        <h2>Staffing solutions built for modern IT teams.</h2>
+      </header>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Contract &amp; Project-based</h3>
+          <p>
+            Flexible engagement models for every stage — from surge support to critical
+            project milestones.
+          </p>
         </div>
+        <div class="card">
+          <h3>Contract-to-Hire</h3>
+          <p>
+            Evaluate talent on the job before converting to FTE, reducing risk and time-to-hire.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Direct Hire</h3>
+          <p>
+            Targeted searches for key leadership, hard-to-find skills, and cleared talent.
+          </p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <h3>Need a short-list fast?</h3>
+        <p>Share your role details and we’ll deliver a curated slate in as little as 48 hours.</p>
+        <a href="#contact" class="btn btn-primary">Request talent</a>
       </div>
     </div>
   </section>
 
-  <!-- For Talent -->
-  <section id="talent" class="section">
-    <div class="container grid grid-2 align-center">
-      <div class="talent-card">
-        <h2>For IT professionals & technology leaders.</h2>
-        <p class="lead">
-          Whether you're seeking your next contract, a remote role, or a leadership step-up, we advocate for you.
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container split">
+      <div>
+        <h2>About Kdell Infotech</h2>
+        <p>
+          IT recruiting with a practitioner’s eye — rooted in hands-on data, cloud,
+          cyber, and enterprise experience.
         </p>
-        <ul class="list">
-          <li>Access roles that are never posted publicly.</li>
-          <li>Resume and interview coaching tailored to IT roles.</li>
-          <li>Transparent feedback at every stage.</li>
-          <li>Support with rate negotiation and career planning.</li>
-        </ul>
-        <a href="mailto:Kdellinfotech@gmail.com?subject=Resume%20-%20Kdell%20Infotech" class="btn btn-full-width">Submit your resume</a>
+        <p>
+          Based in Austell, GA and serving clients nationwide, we support startups,
+          mid-sized organizations, and public sector teams that value clear communication,
+          transparency, and long-term partnerships.
+        </p>
       </div>
       <div>
-        <header class="section-header left">
-          <h3>How it works.</h3>
-        </header>
-        <ol class="steps">
-          <li>
-            <strong>Share your profile.</strong>
-            <p>Send us your resume, current situation, and ideal next step.</p>
-          </li>
-          <li>
-            <strong>Personalized opportunity matching.</strong>
-            <p>We map your skills to current and upcoming roles with our clients.</p>
-          </li>
-          <li>
-            <strong>Prepare & interview with confidence.</strong>
-            <p>We help you tune your resume and prepare for technical and behavioral rounds.</p>
-          </li>
-          <li>
-            <strong>Land the role — and beyond.</strong>
-            <p>We stay with you through onboarding and check-ins to support long-term success.</p>
-          </li>
-        </ol>
+        <ul class="bullet-list">
+          <li>IT-first focus on technology roles only</li>
+          <li>Built by practitioners who know the work</li>
+          <li>Coverage across U.S. time zones &amp; remote teams</li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="section section-muted">
-    <div class="container grid grid-2 align-start">
+  <section class="section section-accent" id="contact">
+    <div class="container split">
       <div>
-        <header class="section-header left">
-          <h2>Let's talk about your IT hiring or job search.</h2>
-          <p>Share a bit about what you need and we'll follow up with a tailored response.</p>
-        </header>
-        <form class="contact-form" onsubmit="return false;">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Full name</label>
-              <input type="text" id="name" placeholder="Jane Doe" />
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" placeholder="you@example.com" />
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="type">I'm a...</label>
-              <select id="type">
-                <option value="">Select one</option>
-                <option value="client">Hiring manager / company</option>
-                <option value="candidate">Job seeker / consultant</option>
-                <option value="partner">Partner / vendor</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="location">Location</label>
-              <input type="text" id="location" placeholder="Atlanta, GA · Remote" />
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="message">How can we help?</label>
-            <textarea id="message" rows="4" placeholder="Briefly describe your needs, tech stack, or ideal role..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-full-width" id="contactSubmit">Send message</button>
-          <p class="form-note" id="formNote">This form is for demo purposes. Connect it to your email, ATS, or CRM to receive submissions.</p>
-        </form>
+        <h2>Let’s talk about your next role or hire.</h2>
+        <p>Send us a note and we’ll follow up with you shortly.</p>
       </div>
-      <div class="contact-panel">
-        <h3>Business details</h3>
-        <ul class="contact-list">
-          <li><strong>Company:</strong> Kdell Infotech</li>
-          <li><strong>Email:</strong> Kdellinfotech@gmail.com</li>
-          <li><strong>Phone:</strong> +1 (978) 400-3834</li>
-          <li><strong>Address:</strong> 3320 Cypress Club Trail, Austell, GA 30106</li>
-          <li><strong>Focus:</strong> IT & Technology Recruiting, Contracting, and Consulting</li>
-          <li><strong>Service Area:</strong> Georgia, USA · Serving clients nationwide & remote</li>
-        </ul>
-        <p class="small">
-          Add your official legal name, registration numbers, and any certifications or vendor registrations
-          (e.g., minority-owned, women-owned, small business, etc.).
-        </p>
+      <div class="contact-details">
+        <p><strong>Email:</strong> <a href="mailto:kdellinfotech@gmail.com">kdellinfotech@gmail.com</a></p>
+        <p><strong>Location:</strong> Austell, GA · Serving clients nationwide</p>
       </div>
     </div>
   </section>
@@ -452,15 +275,22 @@
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© <span id="year"></span> Kdell Infotech. All rights reserved.</p>
+      <p>
+        <span id="year"></span> Kdell Infotech. All rights reserved.
+      </p>
       <div class="footer-links">
         <a href="#top">Back to top</a>
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
+        <a href="#open-roles">Open roles</a>
+        <a href="#clients">For clients</a>
       </div>
     </div>
   </footer>
 
+  <!-- Your existing JS -->
+  <script>
+    // Simple year update
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
