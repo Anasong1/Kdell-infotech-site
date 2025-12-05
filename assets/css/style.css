@@ -1,595 +1,552 @@
-/* ============================
-   GOV-STYLE THEME FOR KDELL INFOTECH
-   ============================ */
-
-/* ---------- Base tokens ---------- */
-
-:root {
-  --page-bg: #f4f6fb;
-  --page-bg-alt: #e6ebf5;
-  --header-bg: #0f2647;      /* deep navy */
-  --header-strip: #324e7b;
-  --primary: #1ea672;        /* green accent */
-  --primary-dark: #17845b;
-  --primary-soft: #e4f5ee;
-  --link: #0066cc;
-  --link-hover: #004a99;
-  --text-main: #1a1f36;
-  --text-muted: #545c78;
-  --border-subtle: #d4d9e5;
-  --card-bg: #ffffff;
-  --radius-sm: 4px;
-  --radius-md: 6px;
-  --radius-lg: 10px;
-  --shadow-soft: 0 6px 18px rgba(15, 32, 76, 0.12);
-}
-
+/* ====== Base ====== */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-html,
 body {
   margin: 0;
-  padding: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: var(--text-main);
-  background: var(--page-bg);
+  color: #111827;
+  background: #f5f7fb;
+  line-height: 1.5;
 }
 
-/* ---------- Layout wrapper ---------- */
+img {
+  max-width: 100%;
+}
 
-.site-wrapper {
-  max-width: 1160px;
+a {
+  color: #0f766e; /* teal accent */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  width: 100%;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 0 1.25rem 3rem;
+  padding: 0 1.5rem;
 }
 
-/* ============================
-   1. HEADER / GOV BANNER
-   ============================ */
-
-.gov-banner {
-  background: #102c4c;
-  color: #d8e0f4;
-  font-size: 0.8rem;
-  padding: 0.35rem 1.25rem;
+/* ====== Top gov bar ====== */
+.gov-topbar {
+  background: #111827;
+  color: #e5e7eb;
+  font-size: 0.75rem;
 }
 
-.gov-banner-inner {
-  max-width: 1160px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.gov-banner-inner span.icon {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: #ffffff;
-  display: inline-block;
-}
-
-/* Main header */
-
-.site-header {
-  background: var(--header-bg);
-  color: #ffffff;
-  border-bottom: 4px solid var(--primary);
-}
-
-.site-header-inner {
-  max-width: 1160px;
-  margin: 0 auto;
-  padding: 0.75rem 1.25rem;
+.gov-topbar-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0.35rem 0;
 }
 
-/* Brand */
+.gov-flag::before {
+  content: "⬤";
+  font-size: 0.5rem;
+  margin-right: 0.35rem;
+  color: #38bdf8;
+}
+
+.gov-help a {
+  color: #e5e7eb;
+}
+
+/* ====== Header ====== */
+.site-header {
+  background: #020617;
+  color: #e5e7eb;
+  border-bottom: 1px solid #0b1120;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0.9rem 0;
+}
 
 .brand {
   display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
+  align-items: center;
+  gap: 0.65rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.brand-mark {
+  background: linear-gradient(135deg, #0f766e, #38bdf8);
+  color: white;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  padding: 0.35rem 0.55rem;
+  font-size: 0.9rem;
 }
 
 .brand-name {
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  font-size: 0.95rem;
-  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1rem;
 }
 
-.brand-line2 {
-  font-size: 0.78rem;
-  opacity: 0.9;
+.brand-subtitle {
+  font-size: 0.8rem;
+  color: #9ca3af;
 }
-
-/* Primary nav */
 
 .main-nav {
   display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  font-size: 0.86rem;
+  gap: 1rem;
+  font-size: 0.9rem;
 }
 
 .main-nav a {
-  color: #e5ebff;
+  color: #e5e7eb;
   text-decoration: none;
+  padding: 0.25rem 0.35rem;
+  border-radius: 0.25rem;
 }
 
-.main-nav a:hover,
-.main-nav a:focus {
-  color: #ffffff;
-  text-decoration: underline;
+.main-nav a:hover {
+  background: rgba(148, 163, 184, 0.15);
 }
 
-.nav-cta {
-  padding: 0.45rem 0.95rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  background: transparent;
-  color: #ffffff;
-  font-size: 0.82rem;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-/* ============================
-   2. PAGE TITLE / BREADCRUMB
-   ============================ */
-
-.page-heading {
-  background: var(--page-bg-alt);
-  border-bottom: 1px solid var(--border-subtle);
-  margin-bottom: 1.5rem;
-}
-
-.page-heading-inner {
-  max-width: 1160px;
-  margin: 0 auto;
-  padding: 0.9rem 1.25rem;
-}
-
-.breadcrumb {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  margin-bottom: 0.25rem;
-}
-
-.breadcrumb a {
-  color: var(--link);
-  text-decoration: none;
-}
-
-.breadcrumb a:hover {
-  text-decoration: underline;
-}
-
-.page-title {
-  margin: 0;
-  font-size: 1.4rem;
-  font-weight: 650;
-}
-
-/* ============================
-   3. HERO SUMMARY PANEL
-   ============================ */
-
-.hero {
-  display: grid;
-  grid-template-columns: minmax(0, 3fr) minmax(0, 2.6fr);
-  gap: 1.75rem;
-  margin: 1.6rem 0 2rem;
-}
-
-.hero-left,
-.hero-right {
-  background: var(--card-bg);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-subtle);
-  box-shadow: var(--shadow-soft);
-  padding: 1.3rem 1.5rem;
-}
-
-/* Hero left text */
-
-.hero-kicker {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--primary-dark);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 0.4rem;
-}
-
-.hero-title {
-  font-size: 1.6rem;
-  margin: 0 0 0.6rem;
-}
-
-.hero-subtitle {
-  margin: 0 0 1rem;
+/* ====== Buttons ====== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  padding: 0.5rem 1.2rem;
   font-size: 0.9rem;
-  color: var(--text-muted);
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
-/* Metrics row */
-
-.hero-metrics {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 0.6rem;
-  margin-bottom: 1.2rem;
-}
-
-.metric {
-  padding: 0.55rem 0.75rem;
-  border-radius: var(--radius-md);
-  background: var(--primary-soft);
-  border: 1px solid #c5e9d7;
+.btn.small {
+  padding: 0.35rem 0.9rem;
   font-size: 0.8rem;
 }
 
-.metric strong {
-  display: block;
-  font-size: 0.9rem;
-  color: var(--primary-dark);
-}
-
-/* Hero actions */
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
+.btn.block {
+  width: 100%;
 }
 
 .btn-primary {
-  background: var(--primary);
-  color: #ffffff;
-  border: 1px solid var(--primary-dark);
-  border-radius: var(--radius-sm);
-  padding: 0.55rem 1.1rem;
-  font-size: 0.86rem;
-  font-weight: 600;
-  cursor: pointer;
+  background: #0f766e;
+  color: white;
+  border-color: #0f766e;
 }
 
 .btn-primary:hover {
-  background: var(--primary-dark);
+  background: #115e59;
+  border-color: #115e59;
 }
 
 .btn-secondary {
-  background: #ffffff;
-  color: var(--header-bg);
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-subtle);
-  padding: 0.55rem 1.1rem;
-  font-size: 0.86rem;
-  cursor: pointer;
+  background: #111827;
+  color: #e5e7eb;
+  border-color: #111827;
 }
 
-/* Hero right list */
-
-.hero-right-title {
-  font-size: 0.88rem;
-  font-weight: 600;
-  margin: 0 0 0.5rem;
+.btn-secondary:hover {
+  background: #020617;
 }
 
-.hero-right p {
-  margin: 0 0 0.6rem;
-  font-size: 0.85rem;
-  color: var(--text-muted);
+.btn-outline {
+  background: transparent;
+  color: #0f766e;
+  border-color: #0f766e;
 }
 
-.hero-role-list {
-  list-style: disc;
-  padding-left: 1.1rem;
-  margin: 0;
-  font-size: 0.85rem;
+.btn-outline:hover {
+  background: rgba(15, 118, 110, 0.08);
 }
 
-/* ============================
-   4. CONTENT SECTIONS
-   ============================ */
-
-.section {
-  margin-bottom: 2.1rem;
+.btn-ghost {
+  background: transparent;
+  color: #111827;
+  border-color: #d1d5db;
 }
 
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+.btn-ghost:hover {
+  background: #e5e7eb;
+}
+
+/* ====== Hero ====== */
+.hero {
+  background: radial-gradient(circle at top left, #0f172a, #020617);
+  color: #e5e7eb;
+  padding: 2.8rem 0 2.8rem;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  color: #38bdf8;
+  margin-bottom: 0.35rem;
+}
+
+.hero h1 {
+  font-size: 2.1rem;
+  margin: 0 0 0.75rem;
+}
+
+.hero-subtitle {
+  margin: 0 0 1.5rem;
+  color: #cbd5f5;
+  max-width: 34rem;
+}
+
+.job-search-form {
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  border: 1px solid #1f2937;
+  margin-bottom: 1.25rem;
+}
+
+.job-search-fields {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 0.75rem;
   margin-bottom: 0.75rem;
 }
 
-.section-title {
-  margin: 0;
-  font-size: 1.05rem;
-  font-weight: 650;
+.field label {
+  display: block;
+  font-size: 0.75rem;
+  margin-bottom: 0.25rem;
+  color: #9ca3af;
 }
 
-.section-subtitle {
-  margin: 0;
+.field input {
+  width: 100%;
+  padding: 0.55rem 0.6rem;
+  border-radius: 0.4rem;
+  border: 1px solid #374151;
+  background: #020617;
+  color: #e5e7eb;
   font-size: 0.85rem;
-  color: var(--text-muted);
 }
 
-/* Text blocks */
-
-.section-body {
-  background: var(--card-bg);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-subtle);
-  box-shadow: var(--shadow-soft);
-  padding: 1.1rem 1.3rem;
-  font-size: 0.9rem;
-  color: var(--text-muted);
+.field input::placeholder {
+  color: #6b7280;
 }
 
-.section-body h3 {
-  margin-top: 0.4rem;
-  margin-bottom: 0.6rem;
-  font-size: 0.98rem;
-  color: var(--text-main);
-}
-
-/* ============================
-   5. JOB LIST (OPEN ROLES)
-   ============================ */
-
-.job-search-bar {
+.hero-stats {
   display: flex;
-  gap: 0.6rem;
-  align-items: center;
-  margin-bottom: 0.8rem;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 1rem;
 }
 
-.job-search-label {
+.stat {
+  min-width: 7.5rem;
+}
+
+.stat-number {
+  display: block;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.stat-label {
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: #9ca3af;
 }
 
-.job-search-input {
-  min-width: 200px;
-  padding: 0.48rem 0.6rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-subtle);
+/* Hero side panel */
+.hero-panel {
+  background: #f9fafb;
+  color: #111827;
+  border-radius: 0.9rem;
+  padding: 1.25rem 1.25rem 1.35rem;
+  box-shadow: 0 18px 35px rgba(15, 23, 42, 0.5);
+}
+
+.hero-panel h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.hero-panel-text {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.hero-panel-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-bullets {
+  list-style: disc;
+  padding-left: 1.2rem;
+  margin: 0;
   font-size: 0.85rem;
+  color: #4b5563;
 }
 
-.job-search-input::placeholder {
-  color: #9ca3c5;
+/* ====== Sections ====== */
+.section {
+  padding: 2.75rem 0;
 }
 
-/* Job cards layout */
+.section-accent {
+  background: #e5f3f2;
+}
 
-#job-list {
+.section-header {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.section-header h2 {
+  margin: 0 0 0.3rem;
+  font-size: 1.4rem;
+}
+
+.section-header p {
+  margin: 0;
+  color: #4b5563;
+}
+
+/* ====== Layout helpers ====== */
+.grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.split {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+  align-items: flex-start;
+}
+
+/* ====== Cards & lists ====== */
+.card {
+  background: white;
+  border-radius: 0.75rem;
+  padding: 1.1rem 1.1rem 1.2rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.03);
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+}
+
+.card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.bullet-list {
+  list-style: disc;
+  padding-left: 1.2rem;
+  margin: 0.35rem 0 0;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.taglist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.taglist li {
+  font-size: 0.8rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: #0f766e;
+  color: white;
+}
+
+/* ====== Callout ====== */
+.callout {
+  margin-top: 2rem;
+  padding: 1.4rem 1.5rem;
+  border-radius: 0.9rem;
+  background: #0f172a;
+  color: #e5e7eb;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.callout h3 {
+  margin: 0 0 0.25rem;
+}
+
+.callout p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #cbd5f5;
+}
+
+/* ====== Jobs list ====== */
+.job-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 0.9rem;
+  gap: 1rem;
 }
 
 .job-card {
-  background: var(--card-bg);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-subtle);
-  box-shadow: var(--shadow-soft);
-  padding: 0.9rem 1rem;
-  font-size: 0.86rem;
+  background: white;
+  border-radius: 0.75rem;
+  padding: 1rem 1rem 0.95rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.9rem;
 }
 
-.job-card h3 {
-  margin: 0 0 0.3rem;
-  font-size: 0.98rem;
-}
-
-.job-card p {
-  margin: 0.12rem 0;
-  color: var(--text-muted);
+.job-title {
+  font-weight: 600;
+  margin-bottom: 0.1rem;
 }
 
 .job-meta {
   display: flex;
   flex-wrap: wrap;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.job-tags {
+  display: flex;
+  flex-wrap: wrap;
   gap: 0.35rem;
-  margin: 0.4rem 0 0.6rem;
+  margin-top: 0.35rem;
 }
 
 .job-tag {
-  border-radius: var(--radius-pill);
-  padding: 0.22rem 0.55rem;
-  border: 1px solid var(--border-subtle);
-  background: #f5f7fc;
-  font-size: 0.74rem;
-  color: var(--text-muted);
+  font-size: 0.75rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  background: #e5f3f2;
+  color: #065f46;
 }
 
-.job-footer-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 0.4rem;
-}
-
-.job-pay {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--primary-dark);
-}
-
-.view-details {
-  display: inline-block;
-  padding: 0.35rem 0.75rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--primary-dark);
-  background: var(--primary-soft);
-  color: var(--primary-dark);
-  text-decoration: none;
-  font-size: 0.8rem;
-  font-weight: 600;
-}
-
-.view-details:hover {
-  background: #cfe8dc;
-}
-
-/* ============================
-   6. JOB DETAILS PAGE
-   ============================ */
-
-.job-details-wrapper {
-  max-width: 760px;
-  margin: 1.8rem auto 2.4rem;
-  background: var(--card-bg);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-subtle);
-  box-shadow: var(--shadow-soft);
-  padding: 1.4rem 1.5rem;
+.jobs-footer {
+  margin-top: 1.5rem;
+  text-align: center;
   font-size: 0.9rem;
 }
 
-.job-details-wrapper h2 {
-  margin-top: 0;
-  margin-bottom: 0.4rem;
+.jobs-footer p {
+  margin-bottom: 0.6rem;
 }
 
-.job-details-wrapper p {
-  color: var(--text-muted);
+/* ====== Contact ====== */
+.contact-details p {
+  margin: 0.15rem 0;
 }
 
-.job-details-wrapper ul {
-  padding-left: 1.2rem;
-  color: var(--text-muted);
-}
-
-/* Back link */
-
-.back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  margin-top: 1.1rem;
-  font-size: 0.84rem;
-  color: var(--link);
-  text-decoration: none;
-}
-
-.back-link:hover {
-  color: var(--link-hover);
-  text-decoration: underline;
-}
-
-/* ============================
-   7. ADMIN / AUTH PAGES
-   ============================ */
-
-.auth-card,
-.admin-card {
-  max-width: 520px;
-  margin: 2.5rem auto;
-  background: var(--card-bg);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-subtle);
-  box-shadow: var(--shadow-soft);
-  padding: 1.3rem 1.4rem 1.6rem;
-  font-size: 0.9rem;
-}
-
-.auth-card h2,
-.admin-card h2 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-}
-
-.form-field {
-  margin-bottom: 0.9rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.form-field label {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-.form-field input,
-.form-field textarea {
-  padding: 0.5rem 0.6rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-subtle);
-  font-size: 0.86rem;
-}
-
-.form-field textarea {
-  min-height: 80px;
-  resize: vertical;
-}
-
-/* ============================
-   8. FOOTER
-   ============================ */
-
+/* ====== Footer ====== */
 .site-footer {
-  border-top: 1px solid var(--border-subtle);
-  margin-top: 2rem;
-  padding-top: 0.9rem;
-  font-size: 0.78rem;
-  color: var(--text-muted);
+  background: #020617;
+  color: #9ca3af;
+  padding: 1.25rem 0;
+  font-size: 0.8rem;
+}
+
+.footer-inner {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 1rem;
 }
 
+.footer-links {
+  display: flex;
+  gap: 0.75rem;
+}
+
 .footer-links a {
-  color: var(--link);
-  text-decoration: none;
-  margin-left: 0.75rem;
+  color: #e5e7eb;
 }
 
-.footer-links a:hover {
-  text-decoration: underline;
-}
-
-/* ============================
-   9. UTILITIES & RESPONSIVE
-   ============================ */
-
-a {
-  color: var(--link);
-}
-
-a:hover {
-  color: var(--link-hover);
-}
-
-/* Mobile layout */
-
+/* ====== Responsive ====== */
 @media (max-width: 900px) {
-  .site-header-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.4rem;
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero-panel {
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.25);
+  }
+
+  .grid-3 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .header-inner {
+    flex-wrap: wrap;
   }
 
   .main-nav {
-    flex-wrap: wrap;
-    padding-top: 0.35rem;
+    display: none; /* keep simple on mobile; can add a menu later */
   }
 
-  .hero {
-    grid-template-columns: 1fr;
+  .callout {
+    align-items: flex-start;
   }
 }
+
+@media (max-width: 640px) {
+  .job-search-fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .gov-topbar-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 
