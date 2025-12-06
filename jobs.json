@@ -21,7 +21,8 @@
     "description": "Need to hire",
     "requirements": ["5-year experience"]
   },
-  "id": 3,
+  {
+    "id": 3,
   "title": "Power BI Data Analyst II",
   "location": "Remonte",
   "type": "Direct Hire",
