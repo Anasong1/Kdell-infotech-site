@@ -20,5 +20,31 @@
     "imageUrl": "",
     "description": "Need to hire",
     "requirements": ["5-year experience"]
-  }
+  },
+  "id": 3,
+  "title": "Power BI Data Analyst II",
+  "location": "Remonte",
+  "type": "Direct Hire",
+  "skills": [],
+  "pay": "$50-$60hr",
+  "status": "Open",
+  "imageUrl": "",
+  "description": "Evaluates data using analytical and logical reasoning to examine each component of the data provided to incorporate into SMC³ data formats.\n\nPerforms duties with minimal supervision and direction. Execute, modify and/or maintain processes/programs that manipulate data for existing products. This involves analysis, testing and documentation. Also performs other duties related to the support of SMC³ data content and products.",
+  "requirements": [
+    "Minimum 2-year Programming or Data related college degree, professional certification or equivalent related work experience.",
+    "Adobe",
+    "Customer service",
+    "Database (MS SQL, MySQL and/or Access)",
+    "ExamDiff Pro",
+    "File Zipping (WinRAR)",
+    "Knowledge of Rating, Transit Time, etc.",
+    "Microsoft CRM",
+    "Microsoft Office (Excel, Word)",
+    "Power BI",
+    "Ready API (SoapUI) using SOAP and REST API’s",
+    "SharePoint",
+    "VBA Script (MS Access)",
+    "Working with data in text or csv files"
+
+}
 ]
