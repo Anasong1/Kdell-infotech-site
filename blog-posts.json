@@ -1,0 +1,26 @@
+[
+  {
+    "id": "first-post",
+    "title": "How Kdell Infotech Supports DoD & Public Sector IT Teams",
+    "date": "2025-12-05",
+    "category": "Public Sector",
+    "excerpt": "A quick overview of how we help agencies and integrators find cleared and clearance-eligible IT talent, from cloud engineers to cyber analysts.",
+    "url": "blog/how-kdell-supports-public-sector.html"
+  },
+  {
+    "id": "remote-it-talent",
+    "title": "Hiring Remote IT Talent Across the U.S.",
+    "date": "2025-12-01",
+    "category": "Hiring Tips",
+    "excerpt": "What we look for in strong remote candidates and how clients can set projects up for success when teams are fully distributed.",
+    "url": "blog/hiring-remote-it-talent.html"
+  },
+  {
+    "id": "candidate-tips",
+    "title": "3 Ways to Stand Out as a Candidate with Kdell Infotech",
+    "date": "2025-11-25",
+    "category": "Career Tips",
+    "excerpt": "Resume tips, communication best practices, and how to work with us so we can advocate strongly for your profile.",
+    "url": "blog/stand-out-as-candidate.html"
+  }
+]
