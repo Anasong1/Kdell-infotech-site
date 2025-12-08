@@ -308,10 +308,48 @@
   </footer>
 
   <!-- Your existing JS -->
-  <script>
-    // Simple year update
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-  <script src="assets/js/main.js"></script>
+ <script>
+  // Simple year update
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Load blog posts from JSON file
+  async function loadBlogPosts() {
+    const container = document.querySelector('.blog-list');
+    if (!container) return;
+
+    try {
+      const res = await fetch('blog-posts.json');
+      if (!res.ok) {
+        console.warn('No blog-posts.json found yet.');
+        return;
+      }
+      const posts = await res.json();
+
+      // Show latest 3 posts
+      const latest = posts.slice(0, 3);
+      latest.forEach(post => {
+        const card = document.createElement('article');
+        card.className = 'blog-card';
+        card.innerHTML = `
+          <div class="blog-card-header">
+            <div class="blog-card-title">${post.title}</div>
+            <div class="blog-card-meta">
+              <span>${new Date(post.date).toLocaleDateString()}</span>
+              ${post.category ? ` · <span>${post.category}</span>` : ''}
+            </div>
+          </div>
+          <p class="blog-card-excerpt">${post.excerpt || ''}</p>
+          ${post.url ? `<a class="read-more" href="${post.url}">Read more →</a>` : ''}
+        `;
+        container.appendChild(card);
+      });
+    } catch (err) {
+      console.error('Error loading blog posts', err);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', loadBlogPosts);
+</script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
