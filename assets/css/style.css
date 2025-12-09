@@ -603,5 +603,10 @@ a:hover {
 .blog-footer p {
   margin-bottom: 0.6rem;
 }
+/* SEO fallback job cards: still indexable, but not visible to users */
+.seo-fallback {
+  display: none;
+}
+
 
 
