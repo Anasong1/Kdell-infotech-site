@@ -196,8 +196,39 @@
         </p>
       </header>
 
-      <!-- Your JS will render job cards INTO this div -->
-      <div id="job-list" class="job-list">
+         <!-- Your JS will render job cards INTO this div -->
+    <div id="job-list" class="job-list">
+
+      <!-- SEO fallback job cards (hidden via CSS but indexable) -->
+      <article class="job-card seo-fallback">
+        <h3>Software Engineer – Public Sector (Remote USA)</h3>
+        <p>Build, modernize, and support mission-critical systems for DoD, DHS, and public health programs.</p>
+        <ul>
+          <li>Tech stack: .NET, Java, JavaScript, cloud (AWS/Azure/GCP)</li>
+          <li>Engagements: contract, contract-to-hire, and direct hire</li>
+        </ul>
+      </article>
+
+      <article class="job-card seo-fallback">
+        <h3>Cybersecurity Analyst / SOC Analyst</h3>
+        <p>Protect federal and commercial environments, monitor threats, and respond to incidents.</p>
+        <ul>
+          <li>Tools: Splunk, SIEM platforms, IDS/IPS, vulnerability scanners</li>
+          <li>Focus: monitoring, detection, incident triage, and reporting</li>
+        </ul>
+      </article>
+
+      <article class="job-card seo-fallback">
+        <h3>Data Engineer / BI &amp; Analytics Consultant</h3>
+        <p>Design and maintain data pipelines that support analytics and reporting for leadership teams.</p>
+        <ul>
+          <li>Tech stack: SQL, Python, ETL tools, cloud data platforms</li>
+          <li>Use cases: dashboards, KPIs, and decision-support analytics</li>
+        </ul>
+      </article>
+
+    </div>
+
         <!-- Populated by main.js -->
       </div>
 
