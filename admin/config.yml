@@ -2,7 +2,7 @@ backend:
   name: github
   repo: Anasong1/Kdell-infotech-site
   branch: main
-  base_url: https://REPLACE_WITH_YOUR_WORKER_URL
+  base_url: https://YOUR-WORKER-URL.workers.dev
   auth_endpoint: auth
 
 media_folder: "assets/uploads"
