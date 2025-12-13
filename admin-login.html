@@ -1,16 +1,13 @@
-<script>
-  if (!localStorage.getItem("adminAuth")) {
-    window.location.href = "/admin-login.html";
-  }
-</script>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kdell Admin Login</title>
-  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <!-- If admin-login.html is in the ROOT, use this: -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
   <style>
     body {
       background: #020617;
@@ -50,47 +47,45 @@
       font-size: 1rem;
       cursor: pointer;
     }
-    button:hover {
-      background: #115e59;
-    }
-    .error {
-      margin-top: 1rem;
-      color: #f87171;
-      font-size: 0.9rem;
-    }
+    button:hover { background: #115e59; }
+    .error { margin-top: 1rem; color: #f87171; font-size: 0.9rem; }
   </style>
 </head>
+
 <body>
+  <div class="login-box">
+    <h2>Admin Login</h2>
+    <input type="password" id="password" placeholder="Enter Password" />
+    <button onclick="checkPassword()">Login</button>
+    <div id="error" class="error"></div>
+  </div>
 
-<div class="login-box">
-  <h2>Admin Login</h2>
-  <input type="password" id="password" placeholder="Enter Password">
-  <button onclick="checkPassword()">Login</button>
-  <div id="error" class="error"></div>
-</div>
+  <script>
+    // SHA-256 hashed password for "KdellSecureAdmin2024!"
+    const correctHash =
+      "9f4ee440c1f7ba82d6953fefba434837f55d70e2d378573cee3b77e3b6b58541";
 
-<script>
-  // SHA-256 hashed password for "KdellSecureAdmin2024!"
-  const correctHash = "9f4ee440c1f7ba82d6953fefba434837f55d70e2d378573cee3b77e3b6b58541";
-
-  async function sha256(text) {
-    const msgBuffer = new TextEncoder().encode(text);
-    const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    return hashArray.map(b => b.toString(16).padStart(2,"0")).join("");
-  }
-
-  async function checkPassword() {
-    const input = document.getElementById("password").value;
-    const hash = await sha256(input);
-
-    if (hash === correctHash) {
-      window.location.href = "index.html"; // admin dashboard
-    } else {
-      document.getElementById("error").textContent = "Incorrect password.";
+    async function sha256(text) {
+      const msgBuffer = new TextEncoder().encode(text);
+      const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
     }
-  }
-</script>
 
+    async function checkPassword() {
+      const input = document.getElementById("password").value.trim();
+      const hash = await sha256(input);
+
+      if (hash === correctHash) {
+        // ✅ Mark user as logged in
+        localStorage.setItem("adminAuth", "true");
+
+        // ✅ Go to your admin dashboard file (change if needed)
+        window.location.href = "/admin-dashboard.html";
+      } else {
+        document.getElementById("error").textContent = "Incorrect password.";
+      }
+    }
+  </script>
 </body>
 </html>
