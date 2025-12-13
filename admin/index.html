@@ -1,9 +1,28 @@
 <!doctype html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <title>Kdell Admin</title>
-<script src="https://unpkg.com/decap-cms@^3/dist/decap-cms.js"></script>
-</head>
-<body></body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Kdell Infotech Admin</title>
+    <meta name="robots" content="noindex,nofollow" />
+  </head>
+
+  <body>
+    <!-- Decap CMS mounts here -->
+    <script>
+      // Make sure Decap always loads the YAML from the right place
+      window.CMS_MANUAL_INIT = true;
+    </script>
+
+    <script src="https://unpkg.com/decap-cms@^3/dist/decap-cms.js"></script>
+
+    <script>
+      CMS.init({
+        config: {
+          load_config_file: true,
+          config_file: "/admin/config.yml"
+        }
+      });
+    </script>
+  </body>
 </html>
