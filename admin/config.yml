@@ -68,7 +68,9 @@ collections:
   - name: "blog_index"
     label: "Blog Index"
     files:
-      - file: "blog/blog-posts.json"
+      # IMPORTANT: match your real file location.
+      # In your repo screenshot it's "blog-posts.json" in the ROOT, not /blog/blog-posts.json
+      - file: "blog-posts.json"
         label: "Blog Posts List (blog-posts.json)"
         name: "blog_posts_json"
         fields:
