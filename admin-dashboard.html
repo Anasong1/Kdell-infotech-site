@@ -1,21 +1,22 @@
-
 <!DOCTYPE html>
-<html lang="en"><script>
-  if (!localStorage.getItem("adminAuth")) {
-    window.location.href = "/admin-login.html";
-  }
-</script>
-
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Admin Dashboard - Kdell Infotech</title>
+  <title>Admin Dashboard – Kdell Infotech</title>
+
+  <!-- AUTH GUARD -->
+  <script>
+    if (localStorage.getItem("adminAuth") !== "true") {
+      window.location.href = "/admin-login.html";
+    }
+  </script>
+
   <style>
     body {
       font-family: Arial, sans-serif;
       background: #020617;
       color: #e5e7eb;
       margin: 0;
-      padding: 0;
     }
     header {
       background: #0f172a;
@@ -25,270 +26,111 @@
       justify-content: space-between;
       align-items: center;
     }
-    header h1 {
-      margin: 0;
-      font-size: 20px;
-    }
-    .badge {
-      background: #10b981;
-      color: #022c22;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-    }
-    main {
-      display: grid;
-      grid-template-columns: 1.3fr 1fr;
-      gap: 24px;
-      padding: 24px;
-    }
-    section {
-      background: #020617;
-      border: 1px solid #1f2937;
-      border-radius: 10px;
-      padding: 18px 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    }
-    h2 {
-      margin-top: 0;
-      font-size: 18px;
-    }
-    label {
-      font-size: 13px;
-      display: block;
-      margin-top: 10px;
-      margin-bottom: 4px;
-      color: #9ca3af;
-    }
-    input, textarea, select {
-      width: 100%;
-      padding: 8px 10px;
-      border-radius: 6px;
-      border: 1px solid #1f2937;
-      background: #020617;
-      color: #e5e7eb;
-      font-size: 14px;
-      box-sizing: border-box;
-    }
-    textarea {
-      min-height: 70px;
-      resize: vertical;
-    }
     button {
-      margin-top: 14px;
-      padding: 10px 14px;
+      padding: 8px 14px;
       border-radius: 6px;
       border: none;
       cursor: pointer;
-      font-size: 14px;
     }
-    .btn-primary {
-      background: #10b981;
-      color: #022c22;
+    .logout {
+      background: #991b1b;
+      color: white;
     }
-    .btn-secondary {
-      background: #111827;
-      color: #e5e7eb;
+    main {
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 24px;
+    }
+    section {
       border: 1px solid #1f2937;
-      margin-left: 8px;
+      border-radius: 10px;
+      padding: 18px;
+      background: #020617;
+    }
+    input, textarea, select {
+      width: 100%;
+      margin-top: 6px;
+      margin-bottom: 12px;
+      padding: 8px;
+      background: #020617;
+      border: 1px solid #1f2937;
+      color: #e5e7eb;
+      border-radius: 6px;
     }
     pre {
       background: #020617;
-      border-radius: 8px;
       padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #1f2937;
       font-size: 12px;
       overflow-x: auto;
-      border: 1px solid #1f2937;
-    }
-    .job-list {
-      margin-top: 10px;
-      max-height: 420px;
-      overflow-y: auto;
-    }
-    .job-card {
-      border-radius: 8px;
-      padding: 10px 12px;
-      border: 1px solid #1f2937;
-      margin-bottom: 8px;
-      background: #020617;
-    }
-    .job-title {
-      font-weight: 600;
-      font-size: 14px;
-    }
-    .job-meta {
-      font-size: 12px;
-      color: #9ca3af;
-      margin-top: 2px;
-    }
-    .tag {
-      display: inline-block;
-      font-size: 11px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: #111827;
-      margin-top: 4px;
-      margin-right: 4px;
-    }
-    small {
-      font-size: 11px;
-      color: #9ca3af;
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <h1>Kdell Infotech – Admin Dashboard</h1>
-    <span class="badge">Internal use only</span>
-  </header>
+<header>
+  <h1>Kdell Infotech – Admin</h1>
+  <button class="logout" onclick="logout()">Logout</button>
+</header>
 
-  <main>
-    <!-- LEFT: New Job Form -->
-    <section>
-      <h2>Create a new job</h2>
-      <small>
-        Fill out the fields below and click <b>Generate Job JSON</b>.  
-        Copy the JSON snippet and paste it into <b>jobs.json</b> in GitHub.
-      </small>
+<main>
+  <section>
+    <h2>Create Job</h2>
 
-      <form id="jobForm" onsubmit="event.preventDefault(); generateJobJson();">
-        <label for="title">Job title</label>
-        <input id="title" placeholder="Senior Data Engineer (Azure / Databricks)" />
+    <input id="title" placeholder="Job title">
+    <input id="location" placeholder="Location">
+    <input id="type" placeholder="Type">
+    <input id="skills" placeholder="Skills (comma separated)">
+    <input id="pay" placeholder="Pay range">
 
-        <label for="location">Location</label>
-        <input id="location" placeholder="Remote – USA" />
+    <textarea id="description" placeholder="Short description"></textarea>
 
-        <label for="type">Job type</label>
-        <input id="type" placeholder="Contract-to-Hire, Direct Hire, Contract" />
+    <button onclick="generate()">Generate JSON</button>
 
-        <label for="skills">Skills / tags (comma separated)</label>
-        <input id="skills" placeholder="Azure, Databricks, PySpark, SQL" />
+    <h3>Copy into jobs.json</h3>
+    <pre id="output">{}</pre>
+  </section>
 
-        <label for="pay">Pay range</label>
-        <input id="pay" placeholder="$85–$110/hr W2 or $120–$140/hr C2C" />
+  <section>
+    <h2>Existing Jobs</h2>
+    <div id="jobs">Loading…</div>
+  </section>
+</main>
 
-        <label for="status">Status</label>
-        <select id="status">
-          <option value="Open">Open</option>
-          <option value="Paused">Paused</option>
-          <option value="Closed">Closed</option>
-        </select>
+<script>
+  function logout() {
+    localStorage.removeItem("adminAuth");
+    window.location.href = "/admin-login.html";
+  }
 
-        <label for="imageUrl">Image URL (optional)</label>
-        <input id="imageUrl" placeholder="https://..." />
-
-        <label for="description">Short description</label>
-        <textarea id="description" placeholder="High-impact role supporting data platforms for enterprise clients..."></textarea>
-
-        <label for="requirements">Key requirements (1 per line)</label>
-        <textarea id="requirements" placeholder="- 5+ years in data engineering
-- Strong Azure & Databricks
-- Expert in SQL & PySpark"></textarea>
-
-        <button class="btn-primary" type="submit">Generate Job JSON</button>
-        <button class="btn-secondary" type="button" onclick="resetForm()">Clear form</button>
-      </form>
-
-      <h3>Generated JSON</h3>
-      <small>Copy this object and paste it inside the <b>[ ... ]</b> array in jobs.json.</small>
-      <pre id="jobJsonOutput">{}</pre>
-    </section>
-
-    <!-- RIGHT: Existing jobs preview -->
-    <section>
-      <h2>Existing jobs (from jobs.json)</h2>
-      <small>This reads your current <b>jobs.json</b> so you see what is already live.</small>
-
-      <div id="jobsList" class="job-list">
-        <small>Loading jobs...</small>
-      </div>
-    </section>
-  </main>
-
-  <script>
-    let nextId = Date.now();
-
-    // Load existing jobs.json for preview + next ID
-    async function loadJobs() {
-      const list = document.getElementById("jobsList");
-      try {
-        const res = await fetch("jobs.json?cache=" + Date.now());
-        if (!res.ok) throw new Error("jobs.json not found");
-        const jobs = await res.json();
-
-        if (!Array.isArray(jobs) || jobs.length === 0) {
-          list.innerHTML = "<small>No jobs yet. Create your first job using the form.</small>";
-          return;
-        }
-
-        // Compute nextId based on current max id
-        const maxId = jobs.reduce((max, j) => j.id > max ? j.id : max, 0);
-        nextId = maxId + 1;
-
-        list.innerHTML = "";
-        jobs.forEach(job => {
-          const card = document.createElement("div");
-          card.className = "job-card";
-          card.innerHTML = `
-            <div class="job-title">${job.title}</div>
-            <div class="job-meta">${job.location} • ${job.type}</div>
-            <div class="job-meta">${job.pay || ""}</div>
-            <div>${(job.skills || []).map(s => `<span class="tag">${s}</span>`).join(" ")}</div>
-          `;
-          list.appendChild(card);
-        });
-      } catch (e) {
-        list.innerHTML = "<small>Could not load jobs.json yet. Make sure the file exists and contains a JSON array.</small>";
-      }
+  async function loadJobs() {
+    try {
+      const res = await fetch("/jobs.json?cache=" + Date.now());
+      const jobs = await res.json();
+      document.getElementById("jobs").innerHTML =
+        jobs.map(j => `<div>• ${j.title}</div>`).join("");
+    } catch {
+      document.getElementById("jobs").innerText =
+        "jobs.json not found yet.";
     }
+  }
 
-    function generateJobJson() {
-      const title = document.getElementById("title").value.trim();
-      const location = document.getElementById("location").value.trim();
-      const type = document.getElementById("type").value.trim();
-      const skillsRaw = document.getElementById("skills").value.trim();
-      const pay = document.getElementById("pay").value.trim();
-      const status = document.getElementById("status").value;
-      const imageUrl = document.getElementById("imageUrl").value.trim();
-      const description = document.getElementById("description").value.trim();
-      const requirementsRaw = document.getElementById("requirements").value.trim();
+  function generate() {
+    const job = {
+      id: Date.now(),
+      title: title.value,
+      location: location.value,
+      type: type.value,
+      skills: skills.value.split(",").map(s => s.trim()),
+      pay: pay.value,
+      description: description.value
+    };
+    output.textContent = JSON.stringify(job, null, 2);
+  }
 
-      if (!title || !location || !type) {
-        alert("Title, location, and type are required.");
-        return;
-      }
-
-      const skills = skillsRaw
-        ? skillsRaw.split(",").map(s => s.trim()).filter(Boolean)
-        : [];
-
-      const requirements = requirementsRaw
-        ? requirementsRaw.split("\n").map(r => r.trim()).filter(Boolean)
-        : [];
-
-      const job = {
-        id: nextId++,
-        title,
-        location,
-        type,
-        skills,
-        pay,
-        status,
-        imageUrl,
-        description,
-        requirements
-      };
-
-      document.getElementById("jobJsonOutput").textContent =
-        JSON.stringify(job, null, 2);
-    }
-
-    function resetForm() {
-      document.getElementById("jobForm").reset();
-      document.getElementById("jobJsonOutput").textContent = "{}";
-    }
-
-    loadJobs();
-  </script>
+  loadJobs();
+</script>
 </body>
 </html>
