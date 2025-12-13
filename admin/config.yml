@@ -1,0 +1,84 @@
+backend:
+  name: github
+  repo: Anasong1/Kdell-infotech-site
+  branch: main
+  base_url: https://REPLACE_WITH_YOUR_WORKER_URL
+  auth_endpoint: auth
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Home (index.html)"
+        name: "home"
+        file: "index.html"
+        fields:
+          - { label: "Page HTML", name: "body", widget: "code", default_language: "html" }
+
+      - label: "About (about.html)"
+        name: "about"
+        file: "about.html"
+        fields:
+          - { label: "Page HTML", name: "body", widget: "code", default_language: "html" }
+
+      - label: "Services (services.html)"
+        name: "services"
+        file: "services.html"
+        fields:
+          - { label: "Page HTML", name: "body", widget: "code", default_language: "html" }
+
+      - label: "Open Roles (open-roles.html)"
+        name: "open_roles"
+        file: "open-roles.html"
+        fields:
+          - { label: "Page HTML", name: "body", widget: "code", default_language: "html" }
+
+      - label: "Contact (contact.html)"
+        name: "contact"
+        file: "contact.html"
+        fields:
+          - { label: "Page HTML", name: "body", widget: "code", default_language: "html" }
+
+  - name: "jobs"
+    label: "Jobs"
+    files:
+      - file: "jobs.json"
+        label: "Jobs List (jobs.json)"
+        name: "jobs_list"
+        fields:
+          - label: "Jobs"
+            name: "jobs"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "number" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Location", name: "location", widget: "string" }
+              - { label: "Type", name: "type", widget: "string" }
+              - { label: "Pay", name: "pay", widget: "string", required: false }
+              - { label: "Skills", name: "skills", widget: "list", required: false }
+              - { label: "Status", name: "status", widget: "select", options: ["Open","Paused","Closed"], default: "Open" }
+              - { label: "Description", name: "description", widget: "text", required: false }
+              - { label: "Requirements", name: "requirements", widget: "list", required: false }
+
+  - name: "blog_index"
+    label: "Blog Index"
+    files:
+      - file: "blog/blog-posts.json"
+        label: "Blog Posts List (blog-posts.json)"
+        name: "blog_posts_json"
+        fields:
+          - label: "Posts"
+            name: "posts"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "number" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Date", name: "date", widget: "string" }
+              - { label: "Category", name: "category", widget: "string", required: false }
+              - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
+              - { label: "URL", name: "url", widget: "string" }
