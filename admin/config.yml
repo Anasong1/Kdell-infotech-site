@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: Anasong1/Kdell-infotech-site
+  repo: /admin/config.yml
   branch: main
   base_url: https://kdell-cms-oauth.ngoasongang.workers.dev
   auth_endpoint: auth
