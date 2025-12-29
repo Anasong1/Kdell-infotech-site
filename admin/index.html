@@ -1,32 +1,259 @@
-const imageHtml = post.image
-  ? `<div class="blog-media">
-       <img class="blog-image" src="${post.image}" alt="${post.title}">
-     </div>`
-  : "";
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kdell Infotech | IT Talent & Tech Solutions</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-const videoHtml = post.video
-  ? `<div class="blog-media">
-       <video class="blog-video" controls preload="metadata" ${post.videoPoster ? `poster="${post.videoPoster}"` : ""}>
-         <source src="${post.video}" type="video/mp4">
-         Your browser does not support the video tag.
-       </video>
-     </div>`
-  : "";
-
-card.innerHTML = `
-  <div class="blog-card-header">
-    <div class="blog-card-title">${post.title}</div>
-    <div class="blog-card-meta">
-      <span>${new Date(post.date).toLocaleDateString()}</span>
-      ${post.category ? ` • <span>${post.category}</span>` : ""}
+  <div class="topbar">
+    <div class="container">
+      Official site of Kdell Infotech — Need help? <a href="#contact">Contact us</a>
     </div>
   </div>
 
-  ${imageHtml}
-  ${videoHtml}
+  <header class="container">
+    <div class="nav">
+      <div class="brand">
+        <div class="brand-badge">KI</div>
+        <div>
+          <div class="brand-title">Kdell Infotech</div>
+          <div class="brand-sub">IT Talent & Tech Solutions</div>
+        </div>
+      </div>
 
-  ${post.excerpt ? `<p class="blog-card-excerpt">${post.excerpt}</p>` : ""}
+      <nav class="navlinks">
+        <a href="#services">Services</a>
+        <a href="#roles">Open Roles</a>
+        <a href="#about">About</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-  ${post.url ? `<a class="read-more" href="${post.url}">Read more →</a>` : ""}
-`;
+  <main>
 
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <a class="btn btn-outline" href="#roles">Find a role</a>
+
+          <div class="kicker">PUBLIC SECTOR • COMMERCIAL • REMOTE USA</div>
+          <h1 class="h1">Advanced IT talent for mission-critical projects.</h1>
+          <p class="lead">
+            We connect exceptional engineers, analysts, and technology leaders with teams that support
+            public sector and enterprise programs across the U.S.
+          </p>
+
+          <div class="stats">
+            <span><b>48 hrs</b> Average short-list time</span>
+            <span><b>95%</b> Client repeat engagement</span>
+            <span><b>US & Remote</b> Nationwide coverage</span>
+          </div>
+        </div>
+
+        <!-- Search card -->
+        <div class="card">
+          <div class="searchpanel">
+            <div class="row">
+              <div>
+                <div class="field-label">Keyword</div>
+                <input id="kw" class="input" placeholder="Search by title, skill, or keyword (e.g. Azure, Databricks)" />
+              </div>
+              <div>
+                <div class="field-label">Location</div>
+                <input id="loc" class="input" placeholder="Remote • USA • City / State" />
+              </div>
+            </div>
+
+            <button class="searchbtn" id="searchBtn">Search jobs</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section" id="services">
+      <div class="container">
+        <header class="section-header">
+          <h2>Services</h2>
+          <p>Contract, contract-to-hire, and direct hire across cleared and commercial technology programs.</p>
+        </header>
+
+        <div class="split">
+          <div class="panel">
+            <h3>Engineering & Cloud</h3>
+            <ul class="bullets">
+              <li>Software Engineers (.NET, Java, Python, JavaScript)</li>
+              <li>Cloud Engineers & Architects (AWS, Azure, GCP)</li>
+              <li>DevOps, SRE & Platform Engineering</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h3>Data, Cyber & QA</h3>
+            <ul class="bullets">
+              <li>Data Analysts, BI (Tableau/Power BI), Data Engineers</li>
+              <li>Cybersecurity, IAM, GRC, Security Engineering</li>
+              <li>QA Automation, Test Engineering, Performance</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OPEN ROLES -->
+    <section class="section" id="roles">
+      <div class="container">
+        <header class="section-header">
+          <h2>Open Roles</h2>
+          <p>Browse roles and apply quickly.</p>
+        </header>
+
+        <!-- If you already have job.html + jobs.json, keep it -->
+        <div class="panel">
+          <p style="margin:0;color:var(--muted)">
+            Use the search at the top, or <a href="job.html">browse open roles here</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <header class="section-header">
+          <h2>About Kdell Infotech</h2>
+          <p>IT recruiting with a practitioner’s eye — rooted in hands-on data, cloud, cyber, and enterprise experience.</p>
+        </header>
+
+        <div class="panel">
+          <p style="margin:0;color:var(--muted)">
+            Based in Austell, GA and serving clients nationwide, we support startups, mid-sized organizations,
+            and public sector teams that value clear communication and transparent partnerships.
+          </p>
+          <ul class="bullets">
+            <li>IT-first focus on technology roles only</li>
+            <li>Built by practitioners who know the work</li>
+            <li>Coverage across U.S. time zones & remote teams</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG -->
+    <section class="section" id="blog">
+      <div class="container">
+        <header class="section-header">
+          <h2>Insights from Kdell Infotech</h2>
+          <p>Short, practical updates on IT hiring, cleared talent, and tech careers.</p>
+        </header>
+
+        <!-- Cards injected by JS -->
+        <div class="blog-list" id="blogList"></div>
+
+        <div style="margin-top:14px">
+          <a class="btn" href="mailto:kdellinfotech@gmail.com?subject=Blog%20updates%20-%20subscribe">Get updates by email</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <header class="section-header">
+          <h2>Let’s talk about your next role or hire.</h2>
+          <p>Send us a note and we’ll follow up with you shortly.</p>
+        </header>
+
+        <div class="panel">
+          <p style="margin:0 0 10px;color:var(--muted)"><b>Email:</b> <a href="mailto:kdellinfotech@gmail.com">kdellinfotech@gmail.com</a></p>
+          <p style="margin:0;color:var(--muted)"><b>Location:</b> Austell, GA • Serving clients nationwide</p>
+        </div>
+
+        <div class="footer">
+          <div style="margin-top:14px">© <span id="year"></span> Kdell Infotech. All rights reserved.</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Jobs search button (optional: redirect to job.html with query params)
+    document.getElementById('searchBtn').addEventListener('click', () => {
+      const kw = encodeURIComponent(document.getElementById('kw').value || '');
+      const loc = encodeURIComponent(document.getElementById('loc').value || '');
+      // If you already have filtering on job.html, use these params there
+      window.location.href = `job.html?kw=${kw}&loc=${loc}`;
+    });
+
+    // BLOG: supports image + mp4
+    // Put media in blog-posts.json like:
+    // { "title":"...", "date":"2025-01-11", "category":"Hiring", "excerpt":"...", "url":"...", "image":"assets/blog/cover1.jpg" }
+    // OR
+    // { ... , "video":"assets/blog/clip1.mp4", "poster":"assets/blog/poster1.jpg" }
+    async function loadBlog(){
+      const list = document.getElementById('blogList');
+
+      try{
+        const res = await fetch('blog-posts.json', { cache: 'no-store' });
+        if(!res.ok){
+          list.innerHTML = `<div class="panel">No blog posts yet.</div>`;
+          return;
+        }
+        const posts = await res.json();
+        const latest = (posts || []).slice(0, 3);
+
+        if(!latest.length){
+          list.innerHTML = `<div class="panel">No blog posts yet.</div>`;
+          return;
+        }
+
+        list.innerHTML = latest.map(p => {
+          const date = p.date ? new Date(p.date).toLocaleDateString() : '';
+          const cat = p.category ? ` • ${p.category}` : '';
+          const href = p.url || '#';
+
+          // Media block: prefer video if provided, otherwise image if provided
+          let media = '';
+          if(p.video){
+            const poster = p.poster ? ` poster="${p.poster}"` : '';
+            media = `<video class="blog-media" controls${poster}>
+                      <source src="${p.video}" type="video/mp4">
+                    </video>`;
+          } else if(p.image){
+            media = `<img class="blog-media" src="${p.image}" alt="${(p.title||'Blog').replace(/"/g,'&quot;')}" />`;
+          } else {
+            media = `<div class="blog-media"></div>`;
+          }
+
+          return `
+            <article class="blog-card">
+              ${media}
+              <div class="blog-card-body">
+                <h3 class="blog-title">${p.title || 'Untitled'}</h3>
+                <div class="blog-meta">${date}${cat}</div>
+                <p class="blog-excerpt">${p.excerpt || ''}</p>
+                ${p.url ? `<a class="read-more" href="${href}">Read more</a>` : ``}
+              </div>
+            </article>
+          `;
+        }).join('');
+
+      }catch(e){
+        list.innerHTML = `<div class="panel">Could not load blog posts.</div>`;
+      }
+    }
+
+    loadBlog();
+  </script>
+</body>
+</html>
