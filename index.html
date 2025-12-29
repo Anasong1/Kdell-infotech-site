@@ -404,26 +404,57 @@
       latest.forEach(post => {
         const card = document.createElement('article');
         card.className = 'blog-card';
-        card.innerHTML = `
-          <div class="blog-card-header">
-            <div class="blog-card-title">${post.title}</div>
-            <div class="blog-card-meta">
-              <span>${new Date(post.date).toLocaleDateString()}</span>
-              ${post.category ? ` · <span>${post.category}</span>` : ''}
-            </div>
-          </div>
-          <p class="blog-card-excerpt">${post.excerpt || ''}</p>
-          ${post.url ? `<a class="read-more" href="${post.url}">Read more →</a>` : ''}
-        `;
-        container.appendChild(card);
-      });
-    } catch (err) {
-      console.error('Error loading blog posts', err);
-    }
+       const safe = (v) => (v ?? "").toString();
+
+const mediaHTML = (post) => {
+  const img = safe(post.image);
+  const vid = safe(post.video);
+  const poster = safe(post.videoPoster || post.image);
+
+  // If there’s a video, show it with controls (mp4)
+  if (vid) {
+    return `
+      <div class="blog-media">
+        <video class="blog-video" controls preload="metadata" ${poster ? `poster="${poster}"` : ""}>
+          <source src="${vid}" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    `;
   }
 
-  document.addEventListener('DOMContentLoaded', loadBlogPosts);
-</script>
-<script src="assets/js/main.js"></script>
-</body>
-</html>
+  // Else if there’s an image, show image
+  if (img) {
+    return `
+      <div class="blog-media">
+        <img class="blog-image" src="${img}" alt="${safe(post.title)}" loading="lazy" />
+      </div>
+    `;
+  }
+
+  return "";
+};
+
+latest.forEach(post => {
+  const card = document.createElement('article');
+  card.className = 'blog-card blog-animate';
+
+  const dateText = post.date ? new Date(post.date).toLocaleDateString() : "";
+
+  card.innerHTML = `
+    ${mediaHTML(post)}
+    <div class="blog-card-header">
+      <div class="blog-card-title">${safe(post.title)}</div>
+      <div class="blog-card-meta">
+        ${dateText ? `<span>${dateText}</span>` : ``}
+        ${post.category ? ` • <span>${safe(post.category)}</span>` : ``}
+      </div>
+    </div>
+
+    <p class="blog-card-excerpt">${safe(post.excerpt)}</p>
+
+    ${post.url ? `<a class="read-more" href="${safe(post.url)}">Read more →</a>` : ``}
+  `;
+
+  blogList.appendChild(card);
+});
