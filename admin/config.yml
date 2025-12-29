@@ -3,27 +3,7 @@ backend:
   repo: Anasong1/Kdell-infotech-site
   branch: main
   base_url: https://kdell-cms-oauth.ngoasongang.workers.dev
-  auth_endpoint: /auth
+  auth_endpoint: auth
 
-publish_mode: editorial_workflow
-media_folder: "assets/uploads"
-public_folder: "/assets/uploads"
-
-collections:
-  - name: "blog"
-    label: "Blog"
-    format: "json"
-    file: "blog-posts.json"
-    fields:
-      - { label: "Posts", name: "posts", widget: "list", fields: [
-          { label: "Title", name: "title", widget: "string" },
-          { label: "Date", name: "date", widget: "datetime" },
-          { label: "Category", name: "category", widget: "string", required: false },
-          { label: "Excerpt", name: "excerpt", widget: "text", required: false },
-          { label: "URL", name: "url", widget: "string", required: false },
-
-          { label: "Cover Image", name: "image", widget: "image", required: false },
-          { label: "MP4 Video", name: "video", widget: "file", required: false, media_library: { config: { multiple: false } } },
-          { label: "Video Poster Image", name: "videoPoster", widget: "image", required: false }
-        ] }
-
+site_url: https://kdellinfotech.com
+display_url: https://kdellinfotech.com
