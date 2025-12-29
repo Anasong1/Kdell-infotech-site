@@ -1,28 +1,32 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Kdell Infotech Admin</title>
-    <meta name="robots" content="noindex,nofollow" />
-  </head>
+const imageHtml = post.image
+  ? `<div class="blog-media">
+       <img class="blog-image" src="${post.image}" alt="${post.title}">
+     </div>`
+  : "";
 
-  <body>
-    <!-- Decap CMS mounts here -->
-    <script>
-      // Make sure Decap always loads the YAML from the right place
-      window.CMS_MANUAL_INIT = true;
-    </script>
+const videoHtml = post.video
+  ? `<div class="blog-media">
+       <video class="blog-video" controls preload="metadata" ${post.videoPoster ? `poster="${post.videoPoster}"` : ""}>
+         <source src="${post.video}" type="video/mp4">
+         Your browser does not support the video tag.
+       </video>
+     </div>`
+  : "";
 
-    <script src="https://unpkg.com/decap-cms@^3/dist/decap-cms.js"></script>
+card.innerHTML = `
+  <div class="blog-card-header">
+    <div class="blog-card-title">${post.title}</div>
+    <div class="blog-card-meta">
+      <span>${new Date(post.date).toLocaleDateString()}</span>
+      ${post.category ? ` • <span>${post.category}</span>` : ""}
+    </div>
+  </div>
 
-    <script>
-      CMS.init({
-        config: {
-          load_config_file: true,
-          config_file: "/admin/config.yml"
-        }
-      });
-    </script>
-  </body>
-</html>
+  ${imageHtml}
+  ${videoHtml}
+
+  ${post.excerpt ? `<p class="blog-card-excerpt">${post.excerpt}</p>` : ""}
+
+  ${post.url ? `<a class="read-more" href="${post.url}">Read more →</a>` : ""}
+`;
+
