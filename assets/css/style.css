@@ -1,31 +1,183 @@
-.blog-media {
-  margin-bottom: 12px;
-  overflow: hidden;
+:root{
+  --bg0:#050914;
+  --bg1:#070f22;
+  --card:#0c1833;
+  --text:#e8eefc;
+  --muted:#a9b6d3;
+  --line:rgba(255,255,255,.12);
+  --brand:#4b5cff;
+  --brand2:#23d5ff;
+  --radius:18px;
+}
+
+html,body{
+  height:100%;
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: radial-gradient(1200px 600px at 20% 10%, rgba(75,92,255,.25), transparent 55%),
+              radial-gradient(900px 600px at 70% 30%, rgba(35,213,255,.18), transparent 55%),
+              linear-gradient(180deg, var(--bg0), var(--bg1));
+  color: var(--text);
+}
+
+a{ color: var(--brand2); text-decoration:none; }
+a:hover{ text-decoration:underline; }
+
+.container{
+  width:min(1080px, calc(100% - 32px));
+  margin:0 auto;
+}
+
+.topline{
+  font-size:14px;
+  color:var(--muted);
+  padding:14px 0;
+}
+.topline a{ color:var(--brand2); }
+
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:14px 0 6px;
+}
+
+.brand{
+  display:flex; align-items:center; gap:12px;
+  font-weight:700;
+  letter-spacing:.2px;
+}
+
+.logo{
+  width:44px; height:44px;
+  border-radius:12px;
+  background: linear-gradient(135deg, rgba(75,92,255,.9), rgba(35,213,255,.7));
+  display:grid; place-items:center;
+  color:#001021;
+  font-weight:900;
+}
+
+.brand small{
+  display:block;
+  font-weight:500;
+  color:var(--muted);
+  margin-top:2px;
+}
+
+.navlinks{
+  display:flex; flex-wrap:wrap;
+  gap:14px;
+  color:var(--muted);
+  font-size:14px;
+}
+.navlinks a{ color:var(--muted); }
+.navlinks a:hover{ color:var(--text); text-decoration:none; }
+
+.hero{
+  padding:28px 0 18px;
+}
+
+.heroCard{
+  border:1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border-radius: var(--radius);
+  padding:28px;
+  box-shadow: 0 18px 60px rgba(0,0,0,.35);
+}
+
+.kicker{
+  color: var(--brand2);
+  letter-spacing:.18em;
+  font-size:12px;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+
+.h1{
+  font-size: clamp(34px, 5vw, 56px);
+  line-height:1.05;
+  margin:0 0 10px;
+}
+
+.sub{
+  color:var(--muted);
+  font-size:18px;
+  line-height:1.55;
+  max-width: 60ch;
+  margin:0 0 18px;
+}
+
+.btnRow{
+  display:flex; flex-wrap:wrap;
+  gap:12px;
+  margin: 10px 0 6px;
+}
+
+.btn{
+  appearance:none;
+  border:1px solid rgba(75,92,255,.45);
+  background: rgba(75,92,255,.12);
+  color: var(--text);
+  padding:10px 16px;
+  border-radius: 999px;
+  font-weight:600;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+.btn:hover{
+  border-color: rgba(35,213,255,.55);
+  background: rgba(35,213,255,.10);
+}
+
+.searchCard{
+  margin-top:18px;
+  border:1px solid var(--line);
+  background: rgba(12,24,51,.55);
+  border-radius: var(--radius);
+  padding:18px;
+}
+
+.fieldLabel{
+  font-size:12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin:10px 0 6px;
+}
+
+.input{
+  width:100%;
+  padding:12px 14px;
   border-radius: 12px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.18);
+  color: var(--text);
+  outline:none;
+}
+.input:focus{
+  border-color: rgba(35,213,255,.5);
+  box-shadow: 0 0 0 4px rgba(35,213,255,.12);
 }
 
-.blog-image {
-  width: 100%;
-  height: auto;
-  display: block;
+.primaryBtn{
+  width:100%;
+  margin-top:12px;
+  padding:13px 16px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(90deg, rgba(75,92,255,.95), rgba(35,213,255,.85));
+  color:#061023;
+  font-weight:800;
+  cursor:pointer;
+}
+.primaryBtn:hover{
+  filter: brightness(1.05);
 }
 
-.blog-video {
-  width: 100%;
-  display: block;
-  border-radius: 12px;
-}
-
-/* Subtle animation (keeps your old look) */
-.blog-animate {
-  opacity: 0;
-  transform: translateY(8px);
-  animation: blogFadeUp 420ms ease-out forwards;
-}
-
-@keyframes blogFadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@media (max-width:720px){
+  .nav{ flex-direction:column; align-items:flex-start; }
+  .heroCard{ padding:20px; }
 }
