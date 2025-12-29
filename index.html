@@ -1,460 +1,696 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-<!-- Structured data: Organization -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Kdell Infotech",
-  "url": "https://kdellinfotech.com/",
-  "logo": "https://kdellinfotech.com/assets/img/logo.svg",
-  "sameAs": [
-    "https://www.linkedin.com/company/kdell-infotech"
-  ]
-}
-</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kdell Infotech | IT Talent & Tech Solutions</title>
+  <meta name="description" content="Kdell Infotech connects exceptional engineers, analysts, and technology leaders with mission-critical teams across public sector and commercial programs." />
 
-<!-- Structured data: Website -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Kdell Infotech",
-  "url": "https://kdellinfotech.com/",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://kdellinfotech.com/?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
-}
-</script>
+  <style>
+    :root{
+      --bg0:#050914;
+      --bg1:#071226;
+      --bg2:#0b1a33;
+      --card:#0b1324cc;
+      --card2:#0b1324f0;
+      --stroke:rgba(255,255,255,.10);
+      --stroke2:rgba(255,255,255,.16);
+      --text:#e8edf7;
+      --muted:rgba(232,237,247,.72);
+      --muted2:rgba(232,237,247,.55);
+      --accent:#2dd4bf;     /* teal */
+      --accent2:#60a5fa;    /* blue */
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --radius:16px;
+      --radius2:24px;
+      --max: 1120px;
+    }
 
-    <title>Kdell Infotech | IT Talent & Tech Solutions (Public Sector & Remote USA)</title>
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 20% 0%, rgba(96,165,250,.18), transparent 60%),
+        radial-gradient(1000px 600px at 70% 15%, rgba(45,212,191,.14), transparent 62%),
+        linear-gradient(180deg, var(--bg0), var(--bg1) 35%, var(--bg2));
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      overflow-x:hidden;
+    }
 
-    <meta name="description" content="Kdell Infotech connects public sector, healthcare, and commercial teams with cleared and clearance-eligible IT talent. We staff software engineering, cloud, data, cybersecurity, and IT support roles across the U.S.">
+    a{color:inherit}
+    .container{max-width:var(--max); margin:0 auto; padding:0 20px}
+    .topbar{
+      font-size:13px;
+      color:var(--muted);
+      padding:10px 0;
+      border-bottom:1px solid var(--stroke);
+    }
+    .topbar a{color:var(--text); text-decoration:none; border-bottom:1px dotted rgba(255,255,255,.35)}
+    .topbar a:hover{border-bottom-color:rgba(255,255,255,.75)}
 
-    <link rel="canonical" href="https://kdellinfotech.com/">
+    /* Header */
+    .header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:18px 0 10px;
+      position:sticky;
+      top:0;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(5,9,20,.78), rgba(5,9,20,.35));
+      border-bottom:1px solid var(--stroke);
+      z-index:50;
+    }
+    .brand{display:flex; align-items:center; gap:12px; min-width:240px}
+    .brand img{
+      width:44px; height:44px;
+      border-radius:12px;
+      object-fit:cover;
+      border:1px solid var(--stroke2);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      background:#0b1324;
+    }
+    .brand-title{display:flex; flex-direction:column; line-height:1.05}
+    .brand-title strong{font-size:16px; letter-spacing:.2px}
+    .brand-title span{font-size:12px; color:var(--muted); margin-top:3px}
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .nav a{
+      font-size:13px;
+      text-decoration:none;
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid transparent;
+      transition: all .18s ease;
+      white-space:nowrap;
+    }
+    .nav a:hover{
+      color:var(--text);
+      border-color:var(--stroke2);
+      background: rgba(255,255,255,.04);
+    }
 
-    <!-- Open Graph / Social -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Kdell Infotech | IT Talent & Tech Solutions">
-    <meta property="og:description" content="IT recruiting for public sector, healthcare, and enterprise teams needing cleared and clearance-eligible talent.">
-    <meta property="og:url" content="https://kdellinfotech.com/">
-    <meta property="og:site_name" content="Kdell Infotech">
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:12px 16px;
+      border-radius:999px;
+      border:1px solid var(--stroke2);
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      text-decoration:none;
+      font-weight:600;
+      font-size:14px;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      cursor:pointer;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.22)}
+    .btn-primary{
+      border-color: rgba(45,212,191,.35);
+      background: linear-gradient(90deg, rgba(45,212,191,.18), rgba(96,165,250,.16));
+    }
+    .btn-primary:hover{border-color: rgba(45,212,191,.55)}
+    .btn-ghost{
+      background: transparent;
+      border-color: transparent;
+      color: var(--muted);
+    }
+    .btn-ghost:hover{border-color: var(--stroke2); background: rgba(255,255,255,.04); color: var(--text)}
 
-    <link rel="stylesheet" href="assets/css/style.css" />
+    /* Sections */
+    main{padding:22px 0 64px}
+    section{padding:38px 0}
+    .grid{display:grid; gap:18px}
+    .hero{
+      padding-top:22px;
+    }
+    .kicker{
+      color: rgba(96,165,250,.90);
+      font-weight:800;
+      letter-spacing:.18em;
+      font-size:12px;
+      text-transform:uppercase;
+      margin-bottom:12px;
+    }
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(34px, 5vw, 56px);
+      line-height:1.04;
+      letter-spacing:-0.02em;
+    }
+    .subhead{
+      margin:0 0 18px;
+      max-width:72ch;
+      color: var(--muted);
+      font-size:16px;
+      line-height:1.6;
+    }
+
+    .panel{
+      border:1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(11,19,36,.82), rgba(11,19,36,.55));
+      box-shadow: var(--shadow);
+      border-radius: var(--radius2);
+      padding:18px;
+    }
+
+    /* Search card */
+    .search-card{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:14px;
+      padding:18px;
+      border-radius: var(--radius2);
+      border:1px solid var(--stroke2);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+    }
+    .field{
+      display:grid;
+      gap:8px;
+    }
+    label{font-size:12px; color:var(--muted); letter-spacing:.02em}
+    input, select{
+      width:100%;
+      padding:14px 14px;
+      border-radius: 14px;
+      border:1px solid var(--stroke2);
+      background: rgba(8,14,28,.75);
+      color: var(--text);
+      outline:none;
+      font-size:14px;
+    }
+    input::placeholder{color:rgba(232,237,247,.45)}
+    .search-row{
+      display:grid;
+      gap:12px;
+      grid-template-columns: 1fr;
+    }
+    .search-actions{display:flex; gap:10px; flex-wrap:wrap}
+    .stats{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      margin-top:14px;
+      color: var(--muted);
+      font-size:13px;
+    }
+    .stats b{color:var(--text)}
+
+    /* Cards / columns */
+    .cols-2{grid-template-columns: 1fr}
+    .cols-3{grid-template-columns: 1fr}
+
+    .card{
+      border:1px solid var(--stroke);
+      border-radius: var(--radius);
+      background: var(--card);
+      padding:16px;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .card:hover{transform: translateY(-2px); border-color: rgba(255,255,255,.18); background: rgba(11,19,36,.86)}
+    .card h3{margin:0 0 8px; font-size:16px}
+    .card p{margin:0; color:var(--muted); line-height:1.55; font-size:14px}
+    .pill{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      font-size:12px;
+      color: rgba(232,237,247,.75);
+      border: 1px solid var(--stroke2);
+      padding:8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.04);
+    }
+
+    /* Blog */
+    .section-header{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+      margin-bottom:14px;
+    }
+    .section-header h2{
+      margin:0;
+      font-size:22px;
+      letter-spacing:-0.01em;
+    }
+    .section-header p{
+      margin:0;
+      color:var(--muted);
+      max-width:70ch;
+      line-height:1.6;
+      font-size:14px;
+    }
+
+    .blog-list{
+      display:grid;
+      gap:14px;
+      grid-template-columns: 1fr;
+    }
+    .blog-card{
+      overflow:hidden;
+      border-radius: var(--radius2);
+      border:1px solid var(--stroke);
+      background: var(--card2);
+      box-shadow: 0 16px 60px rgba(0,0,0,.45);
+      display:grid;
+      grid-template-columns: 1fr;
+    }
+    .blog-media{
+      position:relative;
+      background: rgba(255,255,255,.04);
+      border-bottom:1px solid var(--stroke);
+      aspect-ratio: 16/9;
+      overflow:hidden;
+    }
+    .blog-media img, .blog-media video{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .blog-body{padding:16px}
+    .blog-title{
+      font-weight:800;
+      letter-spacing:-0.01em;
+      margin:0 0 8px;
+      font-size:16px;
+    }
+    .blog-meta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-bottom:10px;
+      color:var(--muted2);
+      font-size:12px;
+    }
+    .blog-excerpt{margin:0 0 12px; color:var(--muted); line-height:1.6; font-size:14px}
+    .read-more{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color: var(--text);
+      text-decoration:none;
+      font-weight:700;
+      font-size:13px;
+    }
+    .read-more span{
+      opacity:.8;
+      transition: transform .18s ease, opacity .18s ease;
+    }
+    .read-more:hover span{transform: translateX(2px); opacity:1}
+
+    .blog-footer{
+      margin-top:14px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:14px;
+      flex-wrap:wrap;
+      color: var(--muted);
+      font-size:13px;
+    }
+
+    /* Contact footer */
+    .footer{
+      border-top:1px solid var(--stroke);
+      padding-top:18px;
+      color: var(--muted);
+      font-size:13px;
+    }
+    .footer a{color:var(--text); text-decoration:none; border-bottom:1px dotted rgba(255,255,255,.35)}
+    .footer a:hover{border-bottom-color:rgba(255,255,255,.75)}
+
+    /* Simple animations */
+    .reveal{
+      opacity:0;
+      transform: translateY(10px);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+    .reveal.show{opacity:1; transform:none}
+
+    /* Responsive */
+    @media (min-width: 820px){
+      .search-row{grid-template-columns: 1fr 1fr}
+      .cols-2{grid-template-columns: 1fr 1fr}
+      .cols-3{grid-template-columns: 1fr 1fr 1fr}
+      .blog-list{grid-template-columns: 1fr 1fr}
+      .blog-card{grid-template-columns: 1.05fr 1.25fr}
+      .blog-media{border-bottom:none; border-right:1px solid var(--stroke); aspect-ratio:auto; min-height:190px}
+    }
+    @media (max-width: 520px){
+      .brand{min-width:auto}
+      .nav{gap:8px}
+      .nav a{padding:8px 8px}
+      .header{position:relative}
+    }
+
+    /* Keep content tidy (prevents “scattered” look) */
+    .spacer{height:8px}
+  </style>
 </head>
 
 <body>
-  <!-- Top government-style slim bar -->
-  <div class="gov-topbar">
-    <div class="container gov-topbar-inner">
-      <span class="gov-flag">Official site of Kdell Infotech</span>
-      <span class="gov-help">Need help? <a href="#contact">Contact us</a></span>
-    </div>
+  <!-- TOP BAR -->
+  <div class="topbar container">
+    Official site of Kdell Infotech • Need help? <a href="#contact">Contact us</a>
   </div>
 
-  <!-- Main header -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="#top" class="brand">
-        <span class="brand-mark">KI</span>
-        <span class="brand-text">
-          <span class="brand-name">Kdell Infotech</span>
-          <span class="brand-subtitle">IT Talent & Tech Solutions</span>
-        </span>
-      </a>
+  <!-- HEADER -->
+  <div class="header container">
+    <div class="brand">
+      <!-- ✅ Use ONE of these:
+           1) If your logo file is: assets/kdell-logo.jpg -> keep this line
+           2) If your logo file is that long PNG name -> rename it to kdell-logo.png OR replace src with your exact filename
+      -->
+      <img src="assets/kdell-logo.jpg" alt="Kdell Infotech Logo" />
 
-      <nav class="main-nav">
-        <a href="#services">Services</a>
-        <a href="#open-roles">Open Roles</a>
-        <a href="#clients">For Clients</a>
-        <a href="#about">About</a>
-        <a href="#blog">Blog</a> <!--NEW
-        -->
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <a href="#open-roles" class="btn btn-outline small">Find a role</a>
+      <div class="brand-title">
+        <strong>Kdell Infotech</strong>
+        <span>IT Talent &amp; Tech Solutions</span>
+      </div>
     </div>
-  </header>
 
-  <!-- Hero search like a gov jobs portal -->
-  <section class="hero" id="top">
-    <div class="container hero-inner">
-      <div class="hero-copy">
-        <p class="eyebrow">Public Sector · Commercial · Remote USA</p>
-        <h1>Advanced IT talent for mission-critical projects.</h1>
-        <p class="hero-subtitle">
-          We connect exceptional engineers, analysts, and technology leaders with teams that
-          support public sector and enterprise programs across the U.S.
-        </p>
+    <nav class="nav">
+      <a href="#services">Services</a>
+      <a href="job.html">Open Roles</a>
+      <a href="#clients">For Clients</a>
+      <a href="#about">About</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
 
-        <!-- Search form – your JS can hook into this if you want later -->
-        <form class="job-search-form" onsubmit="return false;">
-          <div class="job-search-fields">
-            <div class="field">
-              <label for="jobsearchinput">Keyword</label>
-              <!-- IMPORTANT: keep this ID for your JS search logic -->
-              <input
-                type="text"
-                id="jobsearchinput"
-                placeholder="Search by title, skill, or keyword (e.g. Azure, Data Engineer)"
-              />
-            </div>
-            <div class="field">
-              <label for="location">Location</label>
-              <input
-                type="text"
-                id="location"
-                placeholder="Remote · USA · City / State"
-              />
-            </div>
-          </div>
-          <button class="btn btn-primary">Search jobs</button>
-        </form>
+  <main>
+    <!-- HERO -->
+    <section class="hero container reveal" id="top">
+      <div class="kicker">PUBLIC SECTOR • COMMERCIAL • REMOTE USA</div>
+      <h1>Advanced IT talent for mission-critical projects.</h1>
+      <p class="subhead">
+        We connect exceptional engineers, analysts, and technology leaders with teams that support public sector and enterprise programs across the U.S.
+      </p>
 
-        <div class="hero-stats">
-          <div class="stat">
-            <span class="stat-number">48 hrs</span>
-            <span class="stat-label">Average short-list time</span>
+      <div class="search-card">
+        <div class="search-row">
+          <div class="field">
+            <label for="kw">Keyword</label>
+            <input id="kw" type="text" placeholder="Search by title, skill, or keyword (e.g. Azure, Databricks, Tableau)" />
           </div>
-          <div class="stat">
-            <span class="stat-number">95%</span>
-            <span class="stat-label">Client repeat engagement</span>
+          <div class="field">
+            <label for="loc">Location</label>
+            <input id="loc" type="text" placeholder="Remote • USA • City / State" />
           </div>
-          <div class="stat">
-            <span class="stat-number">US &amp; Remote</span>
-            <span class="stat-label">Nationwide coverage</span>
+        </div>
+
+        <div class="search-actions">
+          <button class="btn btn-primary" id="searchBtn" type="button">Search jobs</button>
+          <a class="btn" href="job.html">Browse open roles</a>
+          <a class="btn btn-ghost" href="#clients">I’m hiring</a>
+        </div>
+
+        <div class="stats">
+          <div><b>48 hrs</b> Average short-list time</div>
+          <div><b>95%</b> Client repeat engagement</div>
+          <div><b>US &amp; Remote</b> Nationwide coverage</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- I'M HIRING / I'M LOOKING -->
+    <section class="container reveal" id="clients">
+      <div class="panel">
+        <div class="section-header">
+          <div>
+            <h2>I’m hiring • I’m looking</h2>
+            <p>Whether you’re scaling a mission-critical project or searching for your next cleared or commercial role, Kdell Infotech can help.</p>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap">
+            <a class="btn btn-primary" href="#contact">Request talent</a>
+            <a class="btn" href="job.html">Browse open roles</a>
+          </div>
+        </div>
+
+        <div class="grid cols-3">
+          <div class="card">
+            <h3>Flexible hiring models</h3>
+            <p>Contract, contract-to-hire, and direct hire—built for speed and quality.</p>
+          </div>
+          <div class="card">
+            <h3>Public sector + commercial</h3>
+            <p>DoD, DHS, public health, and commercial programs—with clear communication and delivery focus.</p>
+          </div>
+          <div class="card">
+            <h3>High-impact roles</h3>
+            <p>Cloud, data, cyber, QA, engineering, product/PMO, and support roles.</p>
           </div>
         </div>
       </div>
+    </section>
 
-      <aside class="hero-panel">
-        <h2>I'm hiring · I'm looking</h2>
-        <p class="hero-panel-text">
-          Whether you’re scaling a mission-critical project or searching for your next
-          cleared or commercial role, Kdell Infotech can help.
-        </p>
-        <div class="hero-panel-actions">
-          <a href="#clients" class="btn btn-secondary block">Request talent</a>
-          <a href="#open-roles" class="btn btn-ghost block">Browse open roles</a>
+    <!-- SERVICES -->
+    <section class="container reveal" id="services">
+      <div class="section-header">
+        <div>
+          <h2>We recruit across all IT job families.</h2>
+          <p>From entry-level analysts to senior leadership and cleared engineers.</p>
         </div>
-        <ul class="hero-bullets">
-          <li>Contract, contract-to-hire, and direct hire</li>
-          <li>DoD, DHS, public health &amp; commercial programs</li>
-          <li>Cloud, data, cyber, QA, and support roles</li>
-        </ul>
-      </aside>
-    </div>
-  </section>
+        <div class="pill">Fast shortlists • Strong screening • Clear updates</div>
+      </div>
 
-  <!-- Job families section -->
-  <section class="section" id="services">
-    <div class="container">
-      <header class="section-header">
-        <h2>We recruit across all IT job families.</h2>
-        <p>From entry-level analysts to senior leadership and cleared engineers.</p>
-      </header>
-
-      <div class="grid grid-3">
-        <div class="card">
-          <h3>Engineering &amp; Cloud</h3>
-          <ul class="bullet-list">
+      <div class="grid cols-2">
+        <div class="panel">
+          <h3 style="margin:0 0 10px">Engineering &amp; Cloud</h3>
+          <ul style="margin:0; color:var(--muted); line-height:1.8; padding-left:18px">
             <li>Software Engineers (.NET, Java, Python, JS)</li>
             <li>Cloud Engineers &amp; Architects (AWS, Azure, GCP)</li>
             <li>DevOps, SRE &amp; Platform Engineering</li>
           </ul>
         </div>
 
-        <div class="card">
-          <h3>Data, Cyber &amp; QA</h3>
-          <ul class="bullet-list">
-            <li>Data Engineers, Analysts &amp; BI Developers</li>
-            <li>Cybersecurity Analysts &amp; Engineers</li>
-            <li>QA, SDET &amp; Performance Testing</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Infra, Support &amp; Delivery</h3>
-          <ul class="bullet-list">
-            <li>System &amp; Network Administrators</li>
-            <li>Help Desk &amp; Desktop Support</li>
-            <li>IT PMs, Scrum Masters &amp; BAs</li>
+        <div class="panel">
+          <h3 style="margin:0 0 10px">Data, Cyber &amp; QA</h3>
+          <ul style="margin:0; color:var(--muted); line-height:1.8; padding-left:18px">
+            <li>Data Analysts, BI (Tableau/Power BI), Analytics Eng</li>
+            <li>Data Engineers (SQL, pipelines, ETL/ELT)</li>
+            <li>Cybersecurity, GRC, SOC, IAM</li>
+            <li>QA Automation, Test Engineering</li>
           </ul>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Public sector / cleared callout -->
-  <section class="section section-accent">
-    <div class="container split">
-      <div>
-        <h2>Public Sector &amp; Cleared Talent</h2>
-        <p>
-          DoD · DHS · Public Health · Federal &amp; State agencies · Clearance-eligible &amp;
-          cleared professionals.
-        </p>
-      </div>
-      <div>
-        <ul class="taglist">
-          <li>Secret</li>
-          <li>Top Secret / SCI</li>
-          <li>Public Trust</li>
-          <li>Remote &amp; On-site</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Open roles / job list (driven by your JS) -->
-  <section class="section" id="open-roles">
-    <div class="container">
-      <header class="section-header">
-        <h2>Sample active &amp; recurring IT roles.</h2>
-        <p>
-          These examples show the types of positions we regularly hire for. Use the search
-          box above to filter by skill or title.
-        </p>
-      </header>
-
-         <!-- Your JS will render job cards INTO this div -->
-    <div id="job-list" class="job-list">
-
-      <!-- SEO fallback job cards (hidden via CSS but indexable) -->
-      <article class="job-card seo-fallback">
-        <h3>Software Engineer – Public Sector (Remote USA)</h3>
-        <p>Build, modernize, and support mission-critical systems for DoD, DHS, and public health programs.</p>
-        <ul>
-          <li>Tech stack: .NET, Java, JavaScript, cloud (AWS/Azure/GCP)</li>
-          <li>Engagements: contract, contract-to-hire, and direct hire</li>
-        </ul>
-      </article>
-
-      <article class="job-card seo-fallback">
-        <h3>Cybersecurity Analyst / SOC Analyst</h3>
-        <p>Protect federal and commercial environments, monitor threats, and respond to incidents.</p>
-        <ul>
-          <li>Tools: Splunk, SIEM platforms, IDS/IPS, vulnerability scanners</li>
-          <li>Focus: monitoring, detection, incident triage, and reporting</li>
-        </ul>
-      </article>
-
-      <article class="job-card seo-fallback">
-        <h3>Data Engineer / BI &amp; Analytics Consultant</h3>
-        <p>Design and maintain data pipelines that support analytics and reporting for leadership teams.</p>
-        <ul>
-          <li>Tech stack: SQL, Python, ETL tools, cloud data platforms</li>
-          <li>Use cases: dashboards, KPIs, and decision-support analytics</li>
-        </ul>
-      </article>
-
-    </div>
-
-        <!-- Populated by main.js -->
-      </div>
-
-      <div class="jobs-footer">
-        <p>Don’t see your exact title? We still want to hear from you.</p>
-        <a
-          href="mailto:kdellinfotech@gmail.com?subject=Resume%20-%20New%20IT%20Opportunity"
-          class="btn btn-outline"
-        >
-          Email your resume
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- For Clients -->
-  <section class="section" id="clients">
-    <div class="container">
-      <header class="section-header">
-        <h2>Staffing solutions built for modern IT teams.</h2>
-      </header>
-
-      <div class="grid grid-3">
-        <div class="card">
-          <h3>Contract &amp; Project-based</h3>
-          <p>
-            Flexible engagement models for every stage — from surge support to critical
-            project milestones.
-          </p>
+    <!-- ABOUT -->
+    <section class="container reveal" id="about">
+      <div class="panel">
+        <div class="section-header">
+          <div>
+            <h2>About Kdell Infotech</h2>
+            <p>IT recruiting with a practitioner’s eye—rooted in hands-on data, cloud, cyber, and enterprise experience.</p>
+          </div>
         </div>
-        <div class="card">
-          <h3>Contract-to-Hire</h3>
-          <p>
-            Evaluate talent on the job before converting to FTE, reducing risk and time-to-hire.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Direct Hire</h3>
-          <p>
-            Targeted searches for key leadership, hard-to-find skills, and cleared talent.
-          </p>
-        </div>
-      </div>
 
-      <div class="callout">
-        <h3>Need a short-list fast?</h3>
-        <p>Share your role details and we’ll deliver a curated slate in as little as 48 hours.</p>
-        <a href="#contact" class="btn btn-primary">Request talent</a>
-      </div>
-    </div>
-  </section>
+        <p style="margin:0; color:var(--muted); line-height:1.7">
+          Based in Austell, GA and serving clients nationwide, we support startups, mid-sized organizations, and public sector teams
+          that value clear communication, transparent processes, and strong delivery partnerships.
+        </p>
 
-  <!-- About -->
-  <section class="section" id="about">
-    <div class="container split">
-      <div>
-        <h2>About Kdell Infotech</h2>
-        <p>
-          IT recruiting with a practitioner’s eye — rooted in hands-on data, cloud,
-          cyber, and enterprise experience.
-        </p>
-        <p>
-          Based in Austell, GA and serving clients nationwide, we support startups,
-          mid-sized organizations, and public sector teams that value clear communication,
-          transparency, and long-term partnerships.
-        </p>
-      </div>
-      <div>
-        <ul class="bullet-list">
+        <div class="spacer"></div>
+
+        <ul style="margin:0; color:var(--muted); line-height:1.9; padding-left:18px">
           <li>IT-first focus on technology roles only</li>
           <li>Built by practitioners who know the work</li>
           <li>Coverage across U.S. time zones &amp; remote teams</li>
         </ul>
       </div>
-    </div>
-  </section>
-  <section class="section" id="blog">
-  <div class="container">
-    <header class="section-header">
-      <h2>Insights from Kdell Infotech</h2>
-      <p>Short, practical updates on IT hiring, cleared talent, and tech careers.</p>
-    </header>
+    </section>
 
-    <!-- Blog cards will be injected here by JavaScript -->
-    <div class="blog-list"></div>
+    <!-- BLOG (with pictures + mp4) -->
+    <section class="container reveal" id="blog">
+      <header class="section-header">
+        <div>
+          <h2>Insights from Kdell Infotech</h2>
+          <p>Short, practical updates on IT hiring, cleared talent, and tech careers.</p>
+        </div>
+      </header>
 
-    <div class="blog-footer">
-      <p>Want new articles from Kdell Infotech?</p>
-      <a href="mailto:kdellinfotech@gmail.com?subject=Blog%20Updates%20-%20Subscribe"
-         class="btn btn-outline">
-        Get updates by email
-      </a>
-    </div>
-  </div>
-</section>
+      <!-- Blog cards will be injected here -->
+      <div class="blog-list"></div>
 
-  <!-- Contact -->
-  <section class="section section-accent" id="contact">
-    <div class="container split">
-      <div>
-        <h2>Let’s talk about your next role or hire.</h2>
-        <p>Send us a note and we’ll follow up with you shortly.</p>
+      <div class="blog-footer">
+        <div>Want new articles from Kdell Infotech?</div>
+        <a class="btn" href="mailto:kdellinfotech@gmail.com?subject=Blog%20updates%20-%20Subscribe">Get updates by email</a>
       </div>
-      <div class="contact-details">
-        <p><strong>Email:</strong> <a href="mailto:kdellinfotech@gmail.com">kdellinfotech@gmail.com</a></p>
-        <p><strong>Location:</strong> Austell, GA · Serving clients nationwide</p>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="container reveal" id="contact">
+      <div class="panel">
+        <div class="section-header">
+          <div>
+            <h2>Let’s talk about your next role or hire.</h2>
+            <p>Send us a note and we’ll follow up with you shortly.</p>
+          </div>
+          <a class="btn btn-primary" href="mailto:kdellinfotech@gmail.com?subject=Kdell%20Infotech%20Inquiry">Email us</a>
+        </div>
+
+        <div class="footer">
+          <div><b>Email:</b> <a href="mailto:kdellinfotech@gmail.com">kdellinfotech@gmail.com</a></div>
+          <div style="margin-top:8px"><b>Location:</b> Austell, GA • Serving clients nationwide</div>
+          <div style="margin-top:12px">© <span id="year"></span> Kdell Infotech. All rights reserved.</div>
+          <div style="margin-top:10px"><a href="#top">Back to top</a> • <a href="job.html">Open roles</a> • <a href="#clients">For clients</a></div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>
-        <span id="year"></span> Kdell Infotech. All rights reserved.
-      </p>
-      <div class="footer-links">
-        <a href="#top">Back to top</a>
-        <a href="#open-roles">Open roles</a>
-        <a href="#clients">For clients</a>
-      </div>
-    </div>
-  </footer>
+  <script>
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-  <!-- Your existing JS -->
- <script>
-  // Simple year update
-  document.getElementById('year').textContent = new Date().getFullYear();
+    // Smooth scroll for in-page links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener("click", (e) => {
+        const id = a.getAttribute("href");
+        if (!id || id === "#") return;
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
 
-  // Load blog posts from JSON file
-  async function loadBlogPosts() {
-    const container = document.querySelector('.blog-list');
-    if (!container) return;
+    // Hero "Search jobs" -> send to job.html with query params
+    document.getElementById("searchBtn").addEventListener("click", () => {
+      const kw = encodeURIComponent(document.getElementById("kw").value.trim());
+      const loc = encodeURIComponent(document.getElementById("loc").value.trim());
+      const url = `job.html${(kw || loc) ? `?keyword=${kw}&location=${loc}` : ""}`;
+      window.location.href = url;
+    });
 
-    try {
-      const res = await fetch('blog-posts.json');
-      if (!res.ok) {
-        console.warn('No blog-posts.json found yet.');
-        return;
+    // Reveal animations on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("show");
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+    // Blog loader (supports images + mp4)
+    // blog-posts.json schema supported:
+    // [
+    //   {
+    //     "title":"...",
+    //     "date":"2025-01-11",
+    //     "category":"Hiring",
+    //     "excerpt":"...",
+    //     "url":"https://kdellinfotech.com/blog/post-1.html",
+    //     "image":"assets/blog/hiring-01.jpg",   // optional
+    //     "video":"assets/blog/hiring-01.mp4"    // optional (mp4)
+    //   }
+    // ]
+    (async function loadBlog(){
+      const list = document.querySelector(".blog-list");
+      if (!list) return;
+
+      try {
+        const res = await fetch("blog-posts.json", { cache: "no-store" });
+        if (!res.ok) {
+          list.innerHTML = `<div class="card"><h3>Blog</h3><p>No blog-posts.json found yet.</p></div>`;
+          return;
+        }
+
+        const posts = await res.json();
+        const latest = Array.isArray(posts) ? posts.slice(0, 6) : [];
+        if (!latest.length) {
+          list.innerHTML = `<div class="card"><h3>Blog</h3><p>No posts yet.</p></div>`;
+          return;
+        }
+
+        list.innerHTML = latest.map(post => {
+          const title = escapeHtml(post.title || "Untitled");
+          const excerpt = escapeHtml(post.excerpt || "");
+          const category = escapeHtml(post.category || "");
+          const dateStr = formatDate(post.date);
+
+          const url = post.url ? String(post.url) : "#blog";
+          const image = post.image ? String(post.image) : "";
+          const video = post.video ? String(post.video) : "";
+
+          // Prefer video if both exist
+          let mediaHtml = "";
+          if (video) {
+            mediaHtml = `
+              <div class="blog-media">
+                <video src="${video}" controls playsinline preload="metadata"></video>
+              </div>`;
+          } else if (image) {
+            mediaHtml = `
+              <div class="blog-media">
+                <img src="${image}" alt="${title}">
+              </div>`;
+          } else {
+            mediaHtml = `
+              <div class="blog-media">
+                <img src="assets/kdell-logo.jpg" alt="Kdell Infotech">
+              </div>`;
+          }
+
+          return `
+            <article class="blog-card">
+              ${mediaHtml}
+              <div class="blog-body">
+                <div class="blog-meta">
+                  <span>${dateStr}</span>
+                  ${category ? `<span>•</span><span>${category}</span>` : ""}
+                </div>
+                <h3 class="blog-title">${title}</h3>
+                <p class="blog-excerpt">${excerpt}</p>
+                <a class="read-more" href="${url}">
+                  Read more <span>→</span>
+                </a>
+              </div>
+            </article>
+          `;
+        }).join("");
+
+      } catch (err) {
+        list.innerHTML = `<div class="card"><h3>Blog</h3><p>Could not load posts. Check blog-posts.json formatting.</p></div>`;
       }
-      const posts = await res.json();
 
-      // Show latest 3 posts
-      const latest = posts.slice(0, 3);
-      latest.forEach(post => {
-        const card = document.createElement('article');
-        card.className = 'blog-card';
-       const safe = (v) => (v ?? "").toString();
-
-const mediaHTML = (post) => {
-  const img = safe(post.image);
-  const vid = safe(post.video);
-  const poster = safe(post.videoPoster || post.image);
-
-  // If there’s a video, show it with controls (mp4)
-  if (vid) {
-    return `
-      <div class="blog-media">
-        <video class="blog-video" controls preload="metadata" ${poster ? `poster="${poster}"` : ""}>
-          <source src="${vid}" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-    `;
-  }
-
-  // Else if there’s an image, show image
-  if (img) {
-    return `
-      <div class="blog-media">
-        <img class="blog-image" src="${img}" alt="${safe(post.title)}" loading="lazy" />
-      </div>
-    `;
-  }
-
-  return "";
-};
-
-latest.forEach(post => {
-  const card = document.createElement('article');
-  card.className = 'blog-card blog-animate';
-
-  const dateText = post.date ? new Date(post.date).toLocaleDateString() : "";
-
-  card.innerHTML = `
-    ${mediaHTML(post)}
-    <div class="blog-card-header">
-      <div class="blog-card-title">${safe(post.title)}</div>
-      <div class="blog-card-meta">
-        ${dateText ? `<span>${dateText}</span>` : ``}
-        ${post.category ? ` • <span>${safe(post.category)}</span>` : ``}
-      </div>
-    </div>
-
-    <p class="blog-card-excerpt">${safe(post.excerpt)}</p>
-
-    ${post.url ? `<a class="read-more" href="${safe(post.url)}">Read more →</a>` : ``}
-  `;
-
-  blogList.appendChild(card);
-});
+      function formatDate(d){
+        if (!d) return "";
+        try {
+          const dt = new Date(d);
+          if (isNaN(dt.getTime())) return String(d);
+          return dt.toLocaleDateString(undefined, { year:"numeric", month:"short", day:"numeric" });
+        } catch {
+          return String(d);
+        }
+      }
+      function escapeHtml(s){
+        return String(s)
+          .replaceAll("&","&amp;")
+          .replaceAll("<","&lt;")
+          .replaceAll(">","&gt;")
+          .replaceAll('"',"&quot;")
+          .replaceAll("'","&#039;");
+      }
+    })();
+  </script>
+</body>
+</html>
